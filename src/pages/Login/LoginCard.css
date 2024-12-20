@@ -42,3 +42,9 @@ h2 {
 span {
   margin: 10px;
 }
+
+.loginWave {
+  width: 70%;
+  height: auto;
+  margin: 10px 0;
+}
