@@ -53,3 +53,16 @@ a {
   color: #3b82f6;
   text-decoration: none;
 }
+
+input::placeholder {
+  font-size: 16px;
+  color: #71717A;;
+}
+
+input[type="text"] {
+  border: 1px solid #E4E4E7;
+}
+
+input[type="password"] {
+  border: 1px solid #E4E4E7;
+}
