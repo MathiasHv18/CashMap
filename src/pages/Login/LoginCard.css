@@ -27,7 +27,7 @@ button {
   border: none;
   margin-top: 10px;
   padding: 12px;
-  color: white;
+  color: #fafaed;
   border-radius: 5px;
   cursor: pointer;
   background: #2f2f31;
@@ -47,4 +47,9 @@ span {
   width: 70%;
   height: auto;
   margin: 10px 0;
+}
+
+a {
+  color: #3b82f6;
+  text-decoration: none;
 }
