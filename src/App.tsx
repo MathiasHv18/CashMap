@@ -5,7 +5,7 @@ import LoginCard from "./pages/Login/LoginCard";
 function App() {
   return (
     <>
-      <LoginCard></LoginCard>
+      <LoginCard message={"HolAAA"}></LoginCard>
     </>
   );
 }
