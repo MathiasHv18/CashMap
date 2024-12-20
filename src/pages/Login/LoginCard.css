@@ -1,39 +1,44 @@
+* {
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .loginCard {
-    background-color: white;
+  font-family: "Times New Roman", Times, serif;
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   width: 30%;
   border-radius: 20px;
+  align-items: center;
 }
 
-.title {
-  margin-bottom: 20px;
-  font-size: 1.5rem;
-  text-align: center;
+input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  width: 75%;
+  height: 45px;
 }
-
-.form {
-  display: flex;
-  flex-direction: column;
-}
-
-input{
-    border-radius: 5px;
-}
-
 
 button {
-  margin-top: 10px;
-  padding: 10px;
-  background: #4caf50;
-  color: white;
   border: none;
-  border-radius: 4px;
+  margin-top: 10px;
+  padding: 12px;
+  color: white;
+  border-radius: 5px;
   cursor: pointer;
+  background: #2f2f31;
+  width: 75%;
 }
 
-button:hover {
-  background: #45a049;
+h2 {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+span {
+  margin: 10px;
 }

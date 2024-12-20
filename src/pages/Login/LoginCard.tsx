@@ -1,19 +1,20 @@
 import "./LoginCard.css";
+import frasesLogin from "../../assets/frasesLogin.json";
 
-interface LoginProps {
-  message: string;
-}
-
-function LoginCard(props: LoginProps) {
-  const { message } = props;
+function LoginCard() {
+  const randomIndex = Math.floor(Math.random() * frasesLogin.messages.length);
   return (
     <div className="loginCard">
-      <h2>{message}</h2>
-      <input type="text" />
-      <input type="password" />
+      <h2>{frasesLogin.messages[randomIndex]}</h2>
+      <input type="text" placeholder="Email" />
+      <input type="password" placeholder="Password" />
       <button className="button">Login</button>
-      <h3>I forgot my password</h3>
-      <h3>Don't have an account?</h3> <a href="">Register</a>
+      <span>
+        <a href="">I forgot my password</a>
+      </span>
+      <span>
+        Don't have an account? <a href="">Register</a>
+      </span>
     </div>
   );
 }
