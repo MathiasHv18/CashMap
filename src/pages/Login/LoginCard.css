@@ -27,10 +27,10 @@ button {
   border: none;
   margin-top: 10px;
   padding: 12px;
-  color: white;
+  color: #FAFAED;
   border-radius: 5px;
   cursor: pointer;
-  background: #2f2f31;
+  background: #2F2F31;
   width: 75%;
 }
 
@@ -41,4 +41,9 @@ h2 {
 
 span {
   margin: 10px;
+}
+
+a {
+  color: #3B82F6;
+  text-decoration: none;
 }
