@@ -15,14 +15,20 @@ const LoginCard = () => {
   }, []);
 
   const data = [
-    { expense: 400 },
-    { expense: 300 },
-    { expense: 600 },
-    { expense: 200 },
-    { expense: 500 },
+    { expense: 1000 },
+    { expense: 1200 },
+    { expense: 900 },
+    { expense: 1500 },
+    { expense: 800 },
+    { expense: 1100 },
+    { expense: 1300 },
   ];
 
   const navigate = useNavigate();
+
+  const handlePassword = () => {
+    navigate("/");
+  };
 
   const handleRegisterClick = () => {
     navigate("/register");
@@ -38,10 +44,10 @@ const LoginCard = () => {
   };
 
   return (
-    <div className="outerBox">
-      <form className="loginCard" onSubmit={handleSubmit}>
-        <h2 className="title">{randomMessage}</h2>
-        <div className="chartContainer">
+    <div className="LoginCard_outerBox">
+      <form className="LoginCard_loginCard" onSubmit={handleSubmit}>
+        <h2 className="LoginCard_title">{randomMessage}</h2>
+        <div className="LoginCard_chartContainer">
           <ResponsiveContainer width="100%" height={100}>
             <LineChart data={data}>
               <Line
@@ -54,13 +60,14 @@ const LoginCard = () => {
             </LineChart>
           </ResponsiveContainer>
         </div>
-        {error && <p className="error">{error}</p>}
+        {error && <p className="LoginCard_error">{error}</p>}
         <input 
           type="email" 
           placeholder="Email" 
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          className="LoginCard_input"
         />
         <input 
           type="password" 
@@ -68,9 +75,13 @@ const LoginCard = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          className="LoginCard_input"
         />
-        <button type="submit" className="button">Login</button>
-        <span>
+        <button type="submit" className="LoginCard_button">Login</button>
+        <span className='LoginCard_footer'>
+          <a onClick={handlePassword}> I forgot my password</a>
+        </span>
+        <span className='LoginCard_footer'>
           Don't have an account? 
           <a onClick={handleRegisterClick}> Register here</a>
         </span>
