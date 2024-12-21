@@ -1,3 +1,13 @@
+.outerBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
 .loginCard {
   background-color: white;
   display: flex;
@@ -56,12 +66,10 @@ input {
 
 * {
   font-size: 18px;
-  font-weight: bold;
 }
 
 h2 {
   font-size: 25px;
-  font-weight: bold;
 }
 
 span {

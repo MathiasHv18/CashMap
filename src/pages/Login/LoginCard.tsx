@@ -23,7 +23,7 @@ function LoginCard() {
   };
 
   return (
-    <div className="outerContainer">
+    <div className="outerBox">
       <div className="loginCard">
         <h2 className="tittle">{frasesLogin.messages[randomIndex]}</h2>
         <div className="chartContainer">
