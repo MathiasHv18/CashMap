@@ -1,9 +1,18 @@
 .outerBox {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 1000px;
   width: 100%;
+  height: 100%;
+}
+
+.mainContainer {
+  width: 80%;
+  height: 80%;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
 }
 
 .mainContainer div {
@@ -12,12 +21,12 @@
 }
 
 .input {
-  width: 50%;
+  width: 40%;
   height: 40%;
 }
 
 .resumen {
-  width: 50%;
+  width: 40%;
   height: 40%;
 }
 
