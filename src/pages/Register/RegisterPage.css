@@ -1,0 +1,122 @@
+.RegisterPage_outerBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background: #F9FAFB;
+    padding: 0;
+}
+
+.RegisterPage_registerCard {
+    background: #FFFFFF;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    max-width: 25%;
+    width: 100%;
+    text-align: center;
+}
+
+.RegisterPage_title {
+    font-size: 170%;
+    margin-bottom: 0;
+    margin-top: 5px;
+    color: #000000;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+}
+
+.RegisterPage_input {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #E4E4E7;
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.RegisterPage_input:focus {
+    outline: none;
+    border-color: #3B82F6;
+    box-shadow: 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+.RegisterPage_button {
+    background: #2F2F31;
+    color: #FAFAED;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    width: 100%;
+    margin-top: 15px;
+    transition: background 0.3s ease;
+}
+
+.RegisterPage_button:hover {
+    background: #4c4c4f;
+}
+
+.RegisterPage_span {
+    display: block;
+    margin-top: 15px;
+    color: #000000;
+    font-size: 0.9rem;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+}
+
+.RegisterPage_span a {
+    color: #3b82f6;
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: 3px;
+    transition: color 0.3s ease;
+}
+
+.RegisterPage_span a:hover {
+    color: #145cd0;
+}
+
+@media (max-width: 1200px) {
+    .RegisterPage_registerCard {
+        max-width: 30%;
+    }
+}
+
+@media (max-width: 992px) {
+    .RegisterPage_registerCard {
+        max-width: 40%;
+    }
+}
+
+@media (max-width: 768px) {
+    .RegisterPage_registerCard {
+        max-width: 60%;
+    }
+}
+
+@media (max-width: 576px) {
+    .RegisterPage_registerCard {
+        max-width: 80%;
+    }
+}
+
+@media (max-width: 400px) {
+    .RegisterPage_registerCard {
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    .RegisterPage_title {
+        font-size: 20px;
+    }
+
+    .RegisterPage_button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}

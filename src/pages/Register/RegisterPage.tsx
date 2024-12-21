@@ -11,20 +11,20 @@ function RegisterPage() {
   };
 
   return (
-    <div className="outerBox">
-      <div className="registerCard">
-        <h2 className="tittle">{frasesLogin.messages[randomIndex]}</h2>
+    <div className="RegisterPage_outerBox">
+      <div className="RegisterPage_registerCard">
+        <h2 className="RegisterPage_title">{frasesLogin.messages[randomIndex]}</h2>
 
-        <input type="text" placeholder="Username" />
-        <input type="text" placeholder="Email Address" />
-        <input type="password" placeholder="Password" />
-        <input type="password" placeholder="Confirm password" />
-        <button className="button">Register</button>
-        <span>
+        <input type="text" className="RegisterPage_input" placeholder="Username" />
+        <input type="text" className="RegisterPage_input" placeholder="Email Address" />
+        <input type="password" className="RegisterPage_input" placeholder="Password" />
+        <input type="password" className="RegisterPage_input" placeholder="Confirm password" />
+        <button className="RegisterPage_button">Register</button>
+        <span className="RegisterPage_span">
           By clicking “Register” you agree that you have read CashMap’s Privacy
           Policy and have reviewed and agree to CashMap’s Terms of Service.
         </span>
-        <span>
+        <span className="RegisterPage_span">
           Already have an account? <a onClick={handleLoginClick}>Sign in</a>
         </span>
       </div>
