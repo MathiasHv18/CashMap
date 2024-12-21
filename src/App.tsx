@@ -6,12 +6,12 @@ import RegisterPage from "./pages/Register/RegisterPage";
 function App() {
   return (
     <>
-    <Router>
-      <Routes>
-        <Route path="/login" element={<RegisterPage />} />
-        <Route path="/" element={<LoginCard />} />
-      </Routes>
-    </Router>
+      <Router>
+        <Routes>
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/" element={<LoginCard />} />
+        </Routes>
+      </Router>
     </>
   );
 }

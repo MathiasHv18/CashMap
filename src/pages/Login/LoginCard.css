@@ -32,8 +32,8 @@ input {
   padding: 10px 20px;
   border-radius: 5px;
   width: 83%;
-  background-color: #2F2F31;
-  color: #FAFAED;
+  background-color: #2f2f31;
+  color: #fafaed;
   border: none;
   cursor: pointer;
 }
@@ -77,6 +77,7 @@ span {
 a {
   color: #3b82f6;
   text-decoration: none;
+  cursor: pointer;
 }
 
 input::placeholder {
