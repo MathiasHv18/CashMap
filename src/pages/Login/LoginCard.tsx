@@ -1,20 +1,26 @@
-import "./LoginCard.css";
+import { useState, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ResponsiveContainer, LineChart, Line } from 'recharts';
 import frasesLogin from "../../assets/frasesLogin.json";
-import { LineChart, Line, ResponsiveContainer } from "recharts";
-import { useNavigate } from "react-router-dom";
+import './LoginCard.css';
 
-const data = [
-  { expense: 1000 },
-  { expense: 1200 },
-  { expense: 900 },
-  { expense: 1500 },
-  { expense: 800 },
-  { expense: 1100 },
-  { expense: 1300 },
-];
+const LoginCard = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
-function LoginCard() {
-  const randomIndex = Math.floor(Math.random() * frasesLogin.messages.length);
+  const randomMessage = useMemo(() => {
+    const randomIndex = Math.floor(Math.random() * frasesLogin.messages.length);
+    return frasesLogin.messages[randomIndex];
+  }, []);
+
+  const data = [
+    { expense: 400 },
+    { expense: 300 },
+    { expense: 600 },
+    { expense: 200 },
+    { expense: 500 },
+  ];
 
   const navigate = useNavigate();
 
@@ -22,10 +28,19 @@ function LoginCard() {
     navigate("/register");
   };
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!email || !password) {
+      setError("Both fields are required.");
+      return;
+    }
+    setError("");
+  };
+
   return (
     <div className="outerBox">
-      <div className="loginCard">
-        <h2 className="tittle">{frasesLogin.messages[randomIndex]}</h2>
+      <form className="loginCard" onSubmit={handleSubmit}>
+        <h2 className="title">{randomMessage}</h2>
         <div className="chartContainer">
           <ResponsiveContainer width="100%" height={100}>
             <LineChart data={data}>
@@ -39,16 +54,27 @@ function LoginCard() {
             </LineChart>
           </ResponsiveContainer>
         </div>
-        <input type="text" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <button className="button">Login</button>
+        {error && <p className="error">{error}</p>}
+        <input 
+          type="email" 
+          placeholder="Email" 
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input 
+          type="password" 
+          placeholder="Password" 
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button type="submit" className="button">Login</button>
         <span>
-          <a href="">I forgot my password</a>
+          Don't have an account? 
+          <a onClick={handleRegisterClick}> Register here</a>
         </span>
-        <span>
-          Don't have an account? <a onClick={handleRegisterClick}>Register</a>
-        </span>
-      </div>
+      </form>
     </div>
   );
 }
