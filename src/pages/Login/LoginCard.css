@@ -1,42 +1,62 @@
-* {
-  font-size: 18px;
-  font-weight: bold;
-}
-
 .loginCard {
   background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  width: 30%;
+  max-width: 500px;
+  max-height: 500px;
   border-radius: 20px;
   align-items: center;
   box-shadow: 0px 0px 2px;
+  padding: 20px;
 }
 
-.tittle{
+.tittle {
   margin-top: 30px;
   margin-bottom: 30px;
+  font-size: 25px;
 }
 
 input {
   margin-top: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
-  width: 75%;
-  height: 45px;
+  width: 80%;
+  height: 30px;
+  padding: 10px;
 }
 
-button {
-  border: none;
-  margin-top: 10px;
-  padding: 12px;
-  color: #fafaed;
+.button {
+  margin-top: 20px;
+  padding: 10px 20px;
   border-radius: 5px;
+  width: 83%;
+  background-color: #2F2F31;
+  color: #FAFAED;
+  border: none;
   cursor: pointer;
-  background: #2f2f31;
-  width: 75%;
+}
+
+.button:hover {
+  background-color: #36393d;
+}
+
+@media (min-width: 768px) {
+  .loginCard {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .loginCard {
+    width: 30%;
+  }
+}
+
+* {
+  font-size: 18px;
+  font-weight: bold;
 }
 
 h2 {
@@ -74,7 +94,7 @@ input[type="password"] {
 }
 
 .chartContainer {
-  width: 75%;
+  width: 80%;
   height: 30px;
   margin-bottom: 15px;
   margin-top: 30px;
