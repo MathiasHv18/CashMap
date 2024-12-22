@@ -27,7 +27,7 @@ const LoginCard = () => {
   const navigate = useNavigate();
 
   const handlePassword = () => {
-    navigate("/");
+    navigate("/recoverPassword");
   };
 
   const handleRegisterClick = () => {
@@ -63,7 +63,7 @@ const LoginCard = () => {
         {error && <p className="LoginCard_error">{error}</p>}
         <input 
           type="email" 
-          placeholder="Email" 
+          placeholder="Email Address" 
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -83,7 +83,7 @@ const LoginCard = () => {
         </span>
         <span className='LoginCard_footer'>
           Don't have an account? 
-          <a onClick={handleRegisterClick}> Register here</a>
+          <a onClick={handleRegisterClick}> Register</a>
         </span>
       </form>
     </div>

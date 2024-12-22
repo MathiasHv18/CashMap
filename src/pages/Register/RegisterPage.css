@@ -5,7 +5,7 @@
     height: 100vh;
     width: 100vw;
     background: #F9FAFB;
-    padding: 0;
+    padding: 0px;
 }
 
 .RegisterPage_registerCard {
@@ -20,8 +20,8 @@
 
 .RegisterPage_title {
     font-size: 170%;
-    margin-bottom: 0;
-    margin-top: 5px;
+    margin-bottom: 20px;
+    margin-top: 0px;
     color: #000000;
     font-family: 'Arial', sans-serif;
     font-weight: bold;
@@ -39,14 +39,14 @@
 
 .RegisterPage_input:focus {
     outline: none;
-    border-color: #3B82F6;
-    box-shadow: 0 0 3px rgba(59, 130, 246, 0.5);
+    border-color: #939393;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
 }
 
 .RegisterPage_button {
     background: #2F2F31;
     color: #FAFAED;
-    padding: 12px;
+    padding: 15px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -62,7 +62,17 @@
 
 .RegisterPage_span {
     display: block;
-    margin-top: 15px;
+    margin-top: 10px;
+    color: #000000;
+    font-size: 11px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+}
+
+.RegisterPage_span2 {
+    display: block;
+    margin-top: 17px;
+    margin-bottom: 0%;
     color: #000000;
     font-size: 0.9rem;
     font-family: 'Arial', sans-serif;
@@ -73,11 +83,21 @@
     color: #3b82f6;
     cursor: pointer;
     text-decoration: none;
-    margin-left: 3px;
     transition: color 0.3s ease;
 }
 
 .RegisterPage_span a:hover {
+    color: #145cd0;
+}
+
+.RegisterPage_span2 a {
+    color: #3b82f6;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.RegisterPage_span2 a:hover {
     color: #145cd0;
 }
 

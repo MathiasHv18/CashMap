@@ -45,14 +45,14 @@
 
 .LoginCard_input:focus {
     outline: none;
-    border-color: #3B82F6;
-    box-shadow: 0 0 3px rgba(59, 130, 246, 0.5);
+    border-color: #939393;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
 }
 
 .LoginCard_button {
     background: #2F2F31;
     color: #FAFAED;
-    padding: 12px;
+    padding: 15px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
