@@ -1,11 +1,22 @@
-import React from "react";
-import "./RegisterPage.css";
-import frasesLogin from "../../assets/frasesLogin.json";
+import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
+import frasesLogin from "../../assets/frasesLogin.json";
+import "./RegisterPage.css";
 
 function RegisterPage() {
-  const randomIndex = Math.floor(Math.random() * frasesLogin.messages.length);
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const randomMessage = useMemo(() => {
+    const randomIndex = Math.floor(Math.random() * frasesLogin.messages.length);
+    return frasesLogin.messages[randomIndex];
+  }, []);
+
   const navigate = useNavigate();
+
   const handleLoginClick = () => {
     navigate("/");
   };
@@ -18,16 +29,53 @@ function RegisterPage() {
     navigate("/TermsOfService");
   };
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!username || !email || !password || !confirmPassword) {
+      setError("All fields are required.");
+      return;
+    }
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
+    setError("");
+  };
+
   return (
     <div className="RegisterPage_outerBox">
-      <div className="RegisterPage_registerCard">
-        <h2 className="RegisterPage_title">{frasesLogin.messages[randomIndex]}</h2>
-
-        <input type="text" className="RegisterPage_input" placeholder="Username" />
-        <input type="text" className="RegisterPage_input" placeholder="Email Address" />
-        <input type="password" className="RegisterPage_input" placeholder="Password" />
-        <input type="password" className="RegisterPage_input" placeholder="Confirm Password" />
-        <button className="RegisterPage_button">Register</button>
+      <form className="RegisterPage_registerCard" onSubmit={handleSubmit}>
+        <h2 className="RegisterPage_title">{randomMessage}</h2>
+        {error && <p className="RegisterPage_error">{error}</p>}
+        <input
+          type="text"
+          className="RegisterPage_input"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <input
+          type="email"
+          className="RegisterPage_input"
+          placeholder="Email Address"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          className="RegisterPage_input"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <input
+          type="password"
+          className="RegisterPage_input"
+          placeholder="Confirm Password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+        />
+        <button type="submit" className="RegisterPage_button">Register</button>
         <span className="RegisterPage_span">
           By clicking “Register” you agree that you have read CashMap’s 
           <a onClick={handlePrivacyPolicy}> Privacy Policy </a> 
@@ -37,7 +85,7 @@ function RegisterPage() {
         <span className="RegisterPage_span2">
           Already have an account? <a onClick={handleLoginClick}>Sign in</a>
         </span>
-      </div>
+      </form>
     </div>
   );
 }
