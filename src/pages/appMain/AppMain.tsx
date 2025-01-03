@@ -13,16 +13,20 @@ function AppMain() {
       {/* Barra lateral */}
       <nav className="AppMain_sidebar" aria-label="Barra de navegación">
         <a href="#home" className="AppMain_sidebarLink">
-          <FontAwesomeIcon icon={faHome} /> Home
+          <FontAwesomeIcon icon={faHome} />
+          <span>Home</span>
         </a>
         <a href="#add" className="AppMain_sidebarLink">
-          <FontAwesomeIcon icon={faPlus} /> Add
+          <FontAwesomeIcon icon={faPlus} />
+          <span>Add</span>
         </a>
         <a href="#stats" className="AppMain_sidebarLink">
-          <FontAwesomeIcon icon={faChartBar} /> Stats
+          <FontAwesomeIcon icon={faChartBar} />
+          <span>Stats</span>
         </a>
         <a href="#settings" className="AppMain_sidebarLink">
-          <FontAwesomeIcon icon={faCog} /> Settings
+          <FontAwesomeIcon icon={faCog} />
+          <span>Settings</span>
         </a>
       </nav>
 
