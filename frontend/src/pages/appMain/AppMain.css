@@ -1,148 +1,72 @@
-/* General */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    color: #343a40;
-  }
-  
-  /* Contenedor principal */
-  .AppMain_outerBox {
-    display: flex;
-    flex-direction: row;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
-    /* Barra lateral */
-  .AppMain_sidebar {
-    width: 220px;
-    background-color: #343a40;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    padding: 20px 0;
-  }
+/* AppMain.css */
 
-  .AppMain_sidebarLink {
-    width: 90%;
-    text-decoration: none;
-    color: white;
-    padding: 10px 15px;
-    margin: 5px 0;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 40px;
-  }
+/* Diseño principal */
+.AppMain_outerBox {
+  display: flex;
+  min-height: 100vh;
+}
 
-  .AppMain_sidebarLink:hover {
-    background-color: #495057;
-  }
+/* Barra lateral */
+.AppMain_sidebar {
+  background-color: #0050ac;
+  color: #fff;
+  width: 200px;
+  display:block;
+  flex-direction: column;
+  padding: 50px 15px;
+  justify-content: space-between;
+}
 
-  .AppMain_sidebarLink svg {
-    font-size: 20px;
-  }
+.AppMain_sidebarLink {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
 
-  .AppMain_sidebarLink span {
-    flex-grow: 1;
-    text-align: left;
-    font-size: 16px;
-  }
+.AppMain_sidebarLink:hover {
+  background-color: #00275B;
+}
 
-  /* Contenido principal */
-  .AppMain_mainContent {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    overflow-y: auto;
-    background-color: #ffffff;
-  }
-  
-  .AppMain_mainContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    width: 100%;
-    max-width: 1200px;
-  }
-  
-  /* Input */
-  .AppMain_input {
-    flex: 1 1 calc(50% - 20px);
-    padding: 20px;
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
-    background-color: #f8f9fa;
-  }
-  
-  .AppMain_inputLabel {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
-  }
-  
-  .AppMain_inputField {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  .AppMain_button {
-    margin-top: 20px;
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .AppMain_button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Resumen */
-  .AppMain_summary {
-    flex: 1 1 calc(50% - 20px);
-    padding: 20px;
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
-    background-color: #f8f9fa;
-  }
-  
-  /* Gráfico */
-  .AppMain_chart {
-    flex: 1 1 100%;
-    padding: 20px;
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
-    background-color: #ffffff;
-    text-align: center;
-    font-style: italic;
-  }
-  
-  /* Responsividad */
-  @media (max-width: 768px) {
-    .AppMain_mainContainer {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .AppMain_input,
-    .AppMain_summary {
-      flex: 1 1 100%;
-    }
-  }
-  
+.AppMain_sidebarLink span {
+  font-family: 'Arial', sans-serif;
+  margin-left: 20px;
+  font-size: 18px;
+}
+
+/* Contenido principal */
+.AppMain_content {
+  flex-grow: 1;
+  background-color: #ecf0f1;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Iconos de FontAwesome */
+.AppMain_sidebarLink svg {
+  margin-left: 5px;
+  font-size: 20px;
+  width: 24px;
+  text-align: center;
+}
+
+.sidebar-header {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  cursor: pointer;
+}
+
+.sidebar-header svg {
+  margin-top: 5px;
+  margin-left: 5px;
+  font-size: 20px;
+  width: 24px;
+  text-align: center;
+}
