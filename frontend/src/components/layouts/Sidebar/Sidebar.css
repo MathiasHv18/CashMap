@@ -1,15 +1,28 @@
 .AppMain_sidebar {
   background-color: #0050ac;
   color: #fff;
-  width: 200px;
+  width: 180px;
   display: flex;
   flex-direction: column;
-  padding: 50px 15px;
-  transition: width 0.3s ease;
+  padding: 60px 15px;
+  transition: width 0.3s ease, padding 0.3s ease;
+  position: fixed;
+  height: 100%;
+  z-index: 1000;
 }
 
 .AppMain_sidebar.collapsed {
-  width: 50px;
+  width: 30px;
+}
+
+main {
+  margin-left: 210px;
+  transition: margin-left 0.3s ease;
+}
+
+body.sidebar-collapsed main {
+  margin-left: 60px;
+  transition: margin-left 0.3s ease;
 }
 
 .AppMain_sidebarLink {
@@ -20,18 +33,19 @@
   color: #fff;
   padding: 10px;
   border-radius: 8px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .AppMain_sidebarLink:hover {
-  background-color: #00275b;
+  background-color: #003a80;
+  transform: scale(1.05);
 }
 
 .AppMain_sidebarLink span {
   font-family: "Arial", sans-serif;
   margin-left: 20px;
   font-size: 18px;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s, margin-left 0.3s;
 }
 
 .AppMain_sidebar.collapsed .AppMain_sidebarLink {
@@ -39,69 +53,185 @@
   align-items: center;
   justify-content: center;
   padding: 10px 0;
-  width: 100%;
-  margin: 0 auto;
 }
 
 .AppMain_sidebar.collapsed .AppMain_sidebarLink svg {
   margin: 0;
-  width: 20px;
+  font-size: 20px;
 }
 
 .AppMain_sidebar.collapsed .AppMain_sidebarLink span {
   margin: 5px 0 0 0;
   text-align: center;
   font-size: 12px;
-  width: 100%;
   font-family: "Arial", sans-serif;
-}
-
-/* Iconos de FontAwesome */
-.AppMain_sidebarLink svg {
-  margin-left: 5px;
-  font-size: 20px;
-  width: 24px;
-  text-align: center;
-}
-
-
-.sidebar-header svg {
-  font-size: 20px;
-  width: 20px;
-  text-align: center;
-  margin: 6px;
 }
 
 .sidebar-header {
   position: absolute;
-  max-width: 150px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  top: 10px;
-  left: 25px;
+  top: 20px;
+  left: 15px;
   cursor: pointer;
+  width: 30px;
+  height: 30px;
+  background-color: #003a80;
+  border-radius: 50%;
+  transition: background-color 0.3s;
 }
 
 .sidebar-header:hover {
   background-color: #00275b;
-  border-radius: 5px;
+}
+
+.sidebar-header svg {
+  font-size: 18px;
+  color: white;
 }
 
 .sidebar-logo {
   position: absolute;
   display: flex;
   align-items: center;
-  top: 0px;
+  top: 5px;
+  left: 70px;
 }
 
 .sidebar-logo img {
-  position: relative;
-  width: 40%;
-  margin-left: 70px;
+  width: 80%;
 }
 
 .sidebar-logo.collapsed {
   opacity: 0;
   width: 0;
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .AppMain_sidebar {
+    width: 180px;
+    padding: 40px 10px;
+  }
+
+  .AppMain_sidebar.collapsed {
+    width: 60px;
+  }
+
+  main {
+    margin-left: 180px;
+  }
+
+  body.sidebar-collapsed main {
+    margin-left: 60px;
+  }
+
+  .AppMain_sidebarLink span {
+    font-size: 14px;
+  }
+
+  .AppMain_sidebar.collapsed .AppMain_sidebarLink span {
+    font-size: 0;
+  }
+
+  .sidebar-header {
+    top: 10px;
+    left: 10px;
+  }
+
+  .sidebar-logo {
+    top: 0px;
+    left: 60px;
+  }
+
+  .sidebar-logo.collapsed {
+    left: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .AppMain_sidebar {
+    width: 150px;
+    padding: 30px 10px;
+  }
+
+  .AppMain_sidebar.collapsed {
+    width: 50px;
+  }
+
+  main {
+    margin-left: 150px;
+  }
+
+  body.sidebar-collapsed main {
+    margin-left: 50px;
+  }
+
+  .AppMain_sidebarLink span {
+    font-size: 12px;
+  }
+
+  .AppMain_sidebar.collapsed .AppMain_sidebarLink span {
+    font-size: 0;
+  }
+
+  .sidebar-header {
+    top: 10px;
+    left: 10px;
+  }
+
+  .sidebar-logo {
+    top: 0px;
+    left: 50px;
+  }
+
+  .sidebar-logo.collapsed {
+    left: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .AppMain_sidebar {
+    width: 120px;
+    padding: 20px 5px;
+  }
+
+  .AppMain_sidebar.collapsed {
+    width: 40px;
+  }
+
+  main {
+    margin-left: 120px;
+  }
+
+  body.sidebar-collapsed main {
+    margin-left: 40px;
+  }
+
+  .AppMain_sidebarLink {
+    margin-bottom: 10px;
+  }
+
+  .AppMain_sidebarLink span {
+    font-size: 10px;
+  }
+
+  .AppMain_sidebar.collapsed .AppMain_sidebarLink span {
+    font-size: 0;
+  }
+
+  .sidebar-header {
+    top: 5px;
+    left: 5px;
+  }
+
+  .sidebar-logo {
+    top: 0px;
+    left: 50px;
+  }
+
+  .sidebar-logo.collapsed {
+    left: 5px;
+  }
 }

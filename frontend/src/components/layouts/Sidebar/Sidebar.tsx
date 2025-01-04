@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Sidebar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -8,7 +8,7 @@ import {
   faCog,
   faBars,
 } from "@fortawesome/free-solid-svg-icons";
-import logo from "../../../assets/CashMap_name.svg";
+import logo from "../../../assets/CashMap(T).svg";
 
 interface SidebarProps {
   isCollapsed: boolean;
@@ -16,6 +16,14 @@ interface SidebarProps {
 }
 
 function Sidebar({ isCollapsed, onToggle }: SidebarProps) {
+  useEffect(() => {
+    if (isCollapsed) {
+      document.body.classList.add("sidebar-collapsed");
+    } else {
+      document.body.classList.remove("sidebar-collapsed");
+    }
+  }, [isCollapsed]);
+
   return (
     <nav
       className={`AppMain_sidebar ${isCollapsed ? "collapsed" : ""}`}
