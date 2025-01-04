@@ -1,19 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import "./AppMain.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faPlus, faChartBar, faCog, faBars } from "@fortawesome/free-solid-svg-icons";
 
 function AppMain() {
-  /*function manageInsert() {
-    alert("Gasto agregado con éxito");
-  }*/
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarCollapsed(!isSidebarCollapsed);
+  };
 
   return (
     <div className="AppMain_outerBox">
       {/* Barra lateral */}
-      <nav className="AppMain_sidebar" aria-label="Barra de navegación">
-        <div className="sidebar-header">
-        <FontAwesomeIcon icon={faBars} />
+      <nav
+        className={`AppMain_sidebar ${isSidebarCollapsed ? "collapsed" : ""}`}
+        aria-label="Barra de navegación"
+      >
+        <div className="sidebar-header" onClick={toggleSidebar}>
+          <FontAwesomeIcon icon={faBars} />
         </div>
         <a href="#home" className="AppMain_sidebarLink">
           <FontAwesomeIcon icon={faHome} />
@@ -34,8 +39,7 @@ function AppMain() {
       </nav>
 
       {/* Contenido principal */}
-      <main className="AppMain_content">
-      </main>
+      <main className="AppMain_content"></main>
     </div>
   );
 }

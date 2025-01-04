@@ -1,5 +1,3 @@
-/* AppMain.css */
-
 /* Diseño principal */
 .AppMain_outerBox {
   display: flex;
@@ -11,10 +9,14 @@
   background-color: #0050ac;
   color: #fff;
   width: 200px;
-  display:block;
+  display: flex;
   flex-direction: column;
   padding: 50px 15px;
-  justify-content: space-between;
+  transition: width 0.3s ease;
+}
+
+.AppMain_sidebar.collapsed {
+  width: 50px;
 }
 
 .AppMain_sidebarLink {
@@ -36,7 +38,31 @@
   font-family: 'Arial', sans-serif;
   margin-left: 20px;
   font-size: 18px;
+  transition: opacity 0.3s;
 }
+
+.AppMain_sidebar.collapsed .AppMain_sidebarLink {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.AppMain_sidebar.collapsed .AppMain_sidebarLink svg {
+  margin: 0;
+  width: 20px;
+}
+
+.AppMain_sidebar.collapsed .AppMain_sidebarLink span {
+  margin: 5px 0 0 0;
+  text-align: center;
+  font-size: 12px;
+  width: 100%;
+  font-family: 'Arial', sans-serif;
+}
+
 
 /* Contenido principal */
 .AppMain_content {
@@ -59,14 +85,18 @@
 .sidebar-header {
   position: absolute;
   top: 10px;
-  left: 20px;
+  left: 25px;
   cursor: pointer;
 }
 
 .sidebar-header svg {
-  margin-top: 5px;
-  margin-left: 5px;
   font-size: 20px;
-  width: 24px;
+  width: 20px;
   text-align: center;
+  margin: 6px;
+}
+
+.sidebar-header:hover {
+  background-color: #00275B;
+  border-radius: 5px;
 }
