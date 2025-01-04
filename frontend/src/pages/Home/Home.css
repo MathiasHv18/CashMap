@@ -1,0 +1,57 @@
+.Home_outerBox {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-wrap: wrap;
+  color: white;
+  font-family: "Montserrat", serif;
+}
+
+.Home_tittle {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 0px;
+}
+
+.Home_h3 {
+  margin-bottom: 1%;
+}
+
+.Home_input {
+  margin-top: 0px;
+}
+
+.Home_subtittle {
+  margin-bottom: 0px;
+}
+
+.Home_h4{
+    padding: 0px;
+    margin-bottom: 1px;
+}
+
+.Home_history,
+.Home_stats,
+.Home_inputBox {
+  padding-left: 15px;
+  margin: 5px;
+  background-color: black;
+}
+
+.Home_inputBox {
+  width: 45%;
+  height: 46%;
+}
+
+.Home_history {
+  width: 45%;
+  height: 46%;
+}
+
+.Home_stats {
+  width: 90%;
+  height: 45%;
+  background-color: black;
+  margin: 5px;
+}
