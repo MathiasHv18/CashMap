@@ -8,6 +8,7 @@ import {
   faCog,
   faBars,
 } from "@fortawesome/free-solid-svg-icons";
+import logo from "../../../assets/CashMap_name.svg";
 
 interface SidebarProps {
   isCollapsed: boolean;
@@ -20,6 +21,9 @@ function Sidebar({ isCollapsed, onToggle }: SidebarProps) {
       className={`AppMain_sidebar ${isCollapsed ? "collapsed" : ""}`}
       aria-label="Barra de navegación"
     >
+      <div className={`sidebar-logo ${isCollapsed ? "collapsed" : ""}`}>
+        <img src={logo} alt="CashMap Logo" />
+      </div>
       <div className="sidebar-header" onClick={onToggle}>
         <FontAwesomeIcon icon={faBars} />
       </div>
