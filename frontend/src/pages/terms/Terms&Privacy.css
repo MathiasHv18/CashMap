@@ -1,0 +1,138 @@
+.terms-container {
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .terms-text {
+    color: #666;
+    line-height: 1.5;
+  }
+  
+  .terms-link {
+    color: #3b82f6;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: inherit;
+  }
+  
+  .terms-link:hover {
+    color: #2563eb;
+  }
+  
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+  
+  .modal-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    z-index: 1001;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  .close-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  
+  .close-button:hover {
+    background-color: #f3f4f6;
+  }
+  
+  .modal-content {
+    overflow-y: auto;
+    max-height: calc(80vh - 80px);
+    padding-right: 10px;
+  }
+  
+  .terms-section {
+    margin-bottom: 24px;
+  }
+  
+  .terms-section h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  
+  .terms-section p {
+    margin: 0;
+    line-height: 1.6;
+    color: #4b5563;
+  }
+  
+  /* Estilos para scrollbar personalizado */
+  .modal-content::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .modal-content::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+  }
+  
+  .modal-content::-webkit-scrollbar-thumb:hover {
+    background: #666;
+  }
+  
+  /* Asegura que el modal sea responsive en dispositivos móviles */
+  @media (max-width: 640px) {
+    .modal-container {
+      width: 95%;
+      padding: 15px;
+    }
+    
+    .modal-header h2 {
+      font-size: 1.25rem;
+    }
+    
+    .terms-section h3 {
+      font-size: 1rem;
+    }
+  }
