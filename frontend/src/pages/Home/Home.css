@@ -42,7 +42,7 @@
   margin-bottom: 2%;
 }
 
-.Home_subtittle{
+.Home_subtittle {
   font-weight: 600;
 }
 
@@ -90,4 +90,30 @@
 
 .Home_button:hover {
   background: #4c4c4f;
+}
+
+.Home_table {
+  width: 99%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.Home_table th,
+.Home_table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.Home_table th {
+  background-color: #f4f4f4;
+  font-weight: 600;
+}
+
+.Home_table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.Home_table tr:hover {
+  background-color: #f1f1f1;
 }

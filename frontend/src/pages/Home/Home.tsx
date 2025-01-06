@@ -20,6 +20,24 @@ function Home() {
       </div>
       <div className="Home_historyBox">
         <h2 className="Home_subtittle">History</h2>
+        <table className="Home_table">
+          <thead>
+            <tr>
+              <th>Concept</th>
+              <th>Amount</th>
+              <th>Date</th>
+              <th>Category</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Example</td>
+              <td>$100</td>
+              <td>2025-01-01</td>
+              <td>Food</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <div className="Home_statsBox">
         <h2 className="Home_subtittle">Stats</h2>
