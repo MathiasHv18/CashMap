@@ -4,15 +4,16 @@ import com.cashmap.entity.Sentence;
 import com.cashmap.repository.SentenceRepository;
 import com.cashmap.service.SentenceService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-@RequiredArgsConstructor
 @Service
 public class SentenceServiceImpl implements SentenceService {
 
-    private final SentenceRepository sentenceRepository;
+    @Autowired
+    private  SentenceRepository sentenceRepository;
 
     @Transactional(readOnly = true)
     @Override
