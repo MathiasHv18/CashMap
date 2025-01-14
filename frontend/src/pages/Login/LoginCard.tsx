@@ -1,13 +1,16 @@
-import { useState, useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ResponsiveContainer, LineChart, Line } from 'recharts';
+import { useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
+import { ResponsiveContainer, LineChart, Line } from "recharts";
 import frasesLogin from "../../assets/frasesLogin.json";
-import './LoginCard.css';
+import "./LoginCard.css";
+import useSentences from "../../hooks/useSentences";
 
 const LoginCard = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const { sentences, loading, error: fetchError } = useSentences();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const randomMessage = useMemo(() => {
     const randomIndex = Math.floor(Math.random() * frasesLogin.messages.length);
@@ -27,6 +30,7 @@ const LoginCard = () => {
   const navigate = useNavigate();
 
   const handlePassword = () => {
+    console.log(sentences);
     navigate("/recoverPassword");
   };
 
@@ -61,33 +65,35 @@ const LoginCard = () => {
           </ResponsiveContainer>
         </div>
         {error && <p className="LoginCard_error">{error}</p>}
-        <input 
-          type="email" 
-          placeholder="Email Address" 
+        <input
+          type="email"
+          placeholder="Email Address"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
           className="LoginCard_input"
         />
-        <input 
-          type="password" 
-          placeholder="Password" 
+        <input
+          type="password"
+          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
           className="LoginCard_input"
         />
-        <button type="submit" className="LoginCard_button">Login</button>
-        <span className='LoginCard_footer'>
+        <button type="submit" className="LoginCard_button">
+          Login
+        </button>
+        <span className="LoginCard_footer">
           <a onClick={handlePassword}> I forgot my password</a>
         </span>
-        <span className='LoginCard_footer'>
-          Don't have an account? 
+        <span className="LoginCard_footer">
+          Don't have an account?
           <a onClick={handleRegisterClick}> Register</a>
         </span>
       </form>
     </div>
   );
-}
+};
 
 export default LoginCard;
