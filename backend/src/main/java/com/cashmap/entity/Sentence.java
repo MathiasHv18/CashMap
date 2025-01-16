@@ -10,11 +10,11 @@ import lombok.ToString;
 @Entity
 @Getter
 @Setter
-@Table(name = "sentences")
+@Table(name = "SENTENCES")
 public class Sentence {
     @Id
-    @Column(name = "idsentence")
-    private  Integer idsentence;
+    @Column(name = "idSentence")
+    public  Integer idSentence;
     @Column(name = "sentence",  nullable = false ,length = 45)
     public String sentence;
 }
