@@ -7,36 +7,34 @@ import lombok.Setter;
 
 @Data
 @Entity
-@Getter
-@Setter
 @Table(name = "USERS")
 public class User {
     @Id
     @Column(name = "idUser")
-    private Integer idUser;
+    public Integer idUser;
 
     @ManyToOne
-    @JoinColumn(name = "idCategoryUser", nullable = false)
-    private CategoryUser categoryUser;
+    @JoinColumn(name = "idCategoryUser",referencedColumnName = "categoryUser" , nullable = false)
+    public CategoryUser categoryUser;
 
     @Column(name = "name", nullable = false, length = 30)
-    private String name;
+    public String name;
 
     @Column(name = "lastname", nullable = false, length = 150)
-    private String lastname;
+    public String lastname;
 
     @Column(name = "mail", nullable = false, length = 200)
-    private String mail;
+    public String mail;
 
     @Column(name = "password", nullable = false, length = 20)
-    private String password;
+    public String password;
 
     @Column(name = "age", nullable = false)
-    private Integer age;
+    public Integer age;
 
     @Column(name = "fisicalMoney", nullable = false)
-    private Double fisicalMoney;
+    public Double fisicalMoney;
 
     @Column(name = "digitalMoney", nullable = false)
-    private Double digitalMoney;
+    public Double digitalMoney;
 }

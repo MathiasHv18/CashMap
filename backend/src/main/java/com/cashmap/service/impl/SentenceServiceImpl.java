@@ -13,7 +13,7 @@ import java.util.List;
 public class SentenceServiceImpl implements SentenceService {
 
     @Autowired
-    private  SentenceRepository sentenceRepository;
+    private SentenceRepository sentenceRepository;
 
     @Transactional(readOnly = true)
     @Override

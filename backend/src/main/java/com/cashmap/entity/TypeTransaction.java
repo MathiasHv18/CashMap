@@ -7,14 +7,12 @@ import lombok.Setter;
 
 @Data
 @Entity
-@Getter
-@Setter
 @Table(name = "TYPE_TRANSACTIONS")
 public class TypeTransaction {
     @Id
-    @Column(name = "idTypeTransaction")
-    private Integer idTypeTransaction;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Integer idTypeTransaction;
 
     @Column(name = "typeTransaction", nullable = false, length = 15)
-    private String typeTransaction;
+    public String typeTransaction;
 }
