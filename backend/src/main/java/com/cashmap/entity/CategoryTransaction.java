@@ -11,8 +11,25 @@ import lombok.Setter;
 public class CategoryTransaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer idCategoryTransaction;
+    private Integer idCategoryTransaction;
 
     @Column(name = "categoryTransaction", nullable = false, length = 15)
-    public String categoryTransaction;
+    private String categoryTransaction;
+
+    public Integer getIdCategoryTransaction() {
+        return idCategoryTransaction;
+    }
+
+    public String getCategoryTransaction() {
+        return categoryTransaction;
+    }
+
+    // Setters
+    public void setIdCategoryTransaction(Integer idCategoryTransaction) {
+        this.idCategoryTransaction = idCategoryTransaction;
+    }
+
+    public void setCategoryTransaction(String categoryTransaction) {
+        this.categoryTransaction = categoryTransaction;
+    }
 }

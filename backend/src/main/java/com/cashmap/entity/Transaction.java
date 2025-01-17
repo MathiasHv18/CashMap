@@ -2,32 +2,85 @@ package com.cashmap.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.time.LocalDate;
 
 @Data
 @Entity
+@Getter
+@Setter
 @Table(name = "TRANSACTIONS")
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer idTransaction;
+    private Integer idTransaction;
 
     @ManyToOne
     @JoinColumn(name = "idTypeTransaction", referencedColumnName = "idTypeTransaction", nullable = false)
-    public TypeTransaction typeTransaction;
+    private TypeTransaction typeTransaction;
 
     @ManyToOne
     @JoinColumn(name = "idCategoryTransaction",referencedColumnName = "idCategoryTransaction", nullable = false)
-    public CategoryTransaction categoryTransaction;
+    private CategoryTransaction categoryTransaction;
 
     @Column(name = "concept", nullable = false, length = 20)
-    public String concept;
+    private String concept;
 
     @Column(name = "amount", nullable = false)
-    public Integer amount;
+    private Integer amount;
 
     @Column(name = "date", nullable = false)
-    public java.sql.Date date;
+    private LocalDate date;
 
-    @Column(name = "category", nullable = false, length = 20)
-    public String category;
+    // Getters
+    public Integer getIdTransaction() {
+        return idTransaction;
+    }
+
+    public TypeTransaction getTypeTransaction() {
+        return typeTransaction;
+    }
+
+    public CategoryTransaction getCategoryTransaction() {
+        return categoryTransaction;
+    }
+
+    public String getConcept() {
+        return concept;
+    }
+
+    public Integer getAmount() {
+        return amount;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    // Setters
+    public void setIdTransaction(Integer idTransaction) {
+        this.idTransaction = idTransaction;
+    }
+
+    public void setTypeTransaction(TypeTransaction typeTransaction) {
+        this.typeTransaction = typeTransaction;
+    }
+
+    public void setCategoryTransaction(CategoryTransaction categoryTransaction) {
+        this.categoryTransaction = categoryTransaction;
+    }
+
+    public void setConcept(String concept) {
+        this.concept = concept;
+    }
+
+    public void setAmount(Integer amount) {
+        this.amount = amount;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
 }

@@ -10,7 +10,25 @@ import lombok.Data;
 public class Sentence {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer idSentence;
+    private Integer idSentence;
     @Column(name = "sentence",  nullable = false ,length = 45)
-    public String sentence;
+    private String sentence;
+
+    // Getters
+    public Integer getIdSentence() {
+        return idSentence;
+    }
+
+    public String getSentence() {
+        return sentence;
+    }
+
+    // Setters
+    public void setIdSentence(Integer idSentence) {
+        this.idSentence = idSentence;
+    }
+
+    public void setSentence(String sentence) {
+        this.sentence = sentence;
+    }
 }
