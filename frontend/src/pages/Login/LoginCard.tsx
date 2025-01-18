@@ -1,21 +1,21 @@
 import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { ResponsiveContainer, LineChart, Line } from "recharts";
-import frasesLogin from "../../assets/frasesLogin.json";
 import "./LoginCard.css";
 import useSentences from "../../hooks/useSentences";
 
 const LoginCard = () => {
   const { sentences, loading, error: fetchError } = useSentences();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
-  const randomMessage = useMemo(() => {
-    const randomIndex = Math.floor(Math.random() * frasesLogin.messages.length);
-    return frasesLogin.messages[randomIndex];
-  }, []);
+  const randomSentence = useMemo(() => {
+    if (sentences.length > 0) {
+      const randomIndex = Math.floor(Math.random() * sentences.length);
+      return sentences[randomIndex];
+    }
+    return null;
+  }, [sentences]);
 
   const data = [
     { expense: 1000 },
@@ -30,7 +30,7 @@ const LoginCard = () => {
   const navigate = useNavigate();
 
   const handlePassword = () => {
-    console.log(sentences);
+    console.log(sentences[1].sentence);
     navigate("/recoverPassword");
   };
 
@@ -50,7 +50,7 @@ const LoginCard = () => {
   return (
     <div className="LoginCard_outerBox">
       <form className="LoginCard_loginCard" onSubmit={handleSubmit}>
-        <h2 className="LoginCard_title">{randomMessage}</h2>
+        <h2 className="LoginCard_title">{randomSentence?.sentence}</h2>
         <div className="LoginCard_chartContainer">
           <ResponsiveContainer width="100%" height={100}>
             <LineChart data={data}>

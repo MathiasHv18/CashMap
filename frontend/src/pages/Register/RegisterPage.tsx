@@ -1,21 +1,26 @@
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import frasesLogin from "../../assets/frasesLogin.json";
 import TermsModal from "../terms/Terms&Privacy";
 import "./RegisterPage.css";
+import useSentences from "../../hooks/useSentences";
+
 
 function RegisterPage() {
+  const { sentences, loading, error: fetchError } = useSentences();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [modalType, setModalType] = useState<'privacy' | 'terms' | null>(null);
+  const randomSentence = useMemo(() => {
+    if (sentences.length > 0) {
+      const randomIndex = Math.floor(Math.random() * sentences.length);
+      return sentences[randomIndex];
+    }
+    return null;
+  }, [sentences]);
 
-  const randomMessage = useMemo(() => {
-    const randomIndex = Math.floor(Math.random() * frasesLogin.messages.length);
-    return frasesLogin.messages[randomIndex];
-  }, []);
 
   const navigate = useNavigate();
 
@@ -53,7 +58,7 @@ function RegisterPage() {
   return (
     <div className="RegisterPage_outerBox">
       <form className="RegisterPage_registerCard" onSubmit={handleSubmit}>
-        <h2 className="RegisterPage_title">{randomMessage}</h2>
+        <h2 className="RegisterPage_title">{randomSentence?.sentence}</h2>
         {error && <p className="RegisterPage_error">{error}</p>}
         <input
           type="text"
