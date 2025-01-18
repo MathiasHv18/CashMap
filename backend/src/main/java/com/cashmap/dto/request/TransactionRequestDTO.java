@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Data
 public class TransactionRequestDTO {
-    private Integer amount;
+    private Double amount;
     private String concept;
     private String date;
     private Integer userId;
@@ -14,7 +14,7 @@ public class TransactionRequestDTO {
     private Integer idTypeTran;
 
     // Getters
-    public Integer getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
@@ -39,7 +39,7 @@ public class TransactionRequestDTO {
     }
 
     // Setters
-    public void setAmount(Integer amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 

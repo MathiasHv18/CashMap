@@ -29,7 +29,7 @@ public class Transaction {
     private String concept;
 
     @Column(name = "amount", nullable = false)
-    private Integer amount;
+    private Double amount;
 
     @Column(name = "date", nullable = false)
     private LocalDate date;
@@ -51,7 +51,7 @@ public class Transaction {
         return concept;
     }
 
-    public Integer getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
@@ -76,7 +76,7 @@ public class Transaction {
         this.concept = concept;
     }
 
-    public void setAmount(Integer amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 

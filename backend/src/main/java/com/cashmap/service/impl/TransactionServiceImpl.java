@@ -1,6 +1,7 @@
 package com.cashmap.service.impl;
 
 import com.cashmap.dto.request.TransactionRequestDTO;
+import com.cashmap.dto.response.TransactionResponseDTO;
 import com.cashmap.entity.*;
 import com.cashmap.repository.*;
 import com.cashmap.service.TransactionService;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Service
 public class TransactionServiceImpl implements TransactionService {
@@ -68,6 +70,31 @@ public class TransactionServiceImpl implements TransactionService {
         // Guardar la relación UserTransaction
         return userTransactionRepository.save(userTransaction);
     }
+
+    @Transactional(readOnly = true)
+    @Override
+    public List<TransactionResponseDTO> getUserTransactions(Integer userId) {
+        // Buscar las relaciones de UserTransaction por el ID del usuario
+        List<UserTransaction> userTransactions = userTransactionRepository.findByUser_IdUser(userId);
+
+        // Convertir las entidades en objetos TransactionResponseDTO
+        return userTransactions.stream().map(userTransaction -> {
+            Transaction transaction = userTransaction.getTransaction();
+            TransactionResponseDTO responseDTO = new TransactionResponseDTO();
+
+            // Asignar valores al DTO
+            responseDTO.setIdTransaction(transaction.getIdTransaction());
+            responseDTO.setAmount(transaction.getAmount());
+            responseDTO.setConcept(transaction.getConcept());
+            responseDTO.setDate(transaction.getDate().toString());
+            responseDTO.setUserName(userTransaction.getUser().getName());
+            responseDTO.setCategoryDescription(transaction.getCategoryTransaction().getCategoryTransaction());
+            responseDTO.setTypeDescription(transaction.getTypeTransaction().getTypeTransaction());
+
+            return responseDTO;
+        }).toList();
+    }
+
 
     @Transactional(readOnly = true)
     @Override
