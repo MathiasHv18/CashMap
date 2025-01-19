@@ -1,5 +1,6 @@
 package com.cashmap.entity;
 
+import com.cashmap.entity.enums.Rol;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -13,24 +14,7 @@ public class CategoryUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idCategoryUser;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "categoryUser", nullable = false, length = 30)
-    private String categoryUser;
-
-    // Getters
-    public Integer getIdCategoryUser() {
-        return idCategoryUser;
-    }
-
-    public String getCategoryUser() {
-        return categoryUser;
-    }
-
-    // Setters
-    public void setIdCategoryUser(Integer idCategoryUser) {
-        this.idCategoryUser = idCategoryUser;
-    }
-
-    public void setCategoryUser(String categoryUser) {
-        this.categoryUser = categoryUser;
-    }
+    private Rol categoryUser;
 }

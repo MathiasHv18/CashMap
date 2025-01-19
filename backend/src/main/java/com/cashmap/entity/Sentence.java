@@ -15,20 +15,5 @@ public class Sentence {
     private String sentence;
 
     // Getters
-    public Integer getIdSentence() {
-        return idSentence;
-    }
 
-    public String getSentence() {
-        return sentence;
-    }
-
-    // Setters
-    public void setIdSentence(Integer idSentence) {
-        this.idSentence = idSentence;
-    }
-
-    public void setSentence(String sentence) {
-        this.sentence = sentence;
-    }
 }

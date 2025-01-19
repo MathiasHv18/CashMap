@@ -13,6 +13,6 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedOrigins("*") // Permitir todos los orígenes
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Métodos permitidos
                 .allowedHeaders("*") // Permitir todos los encabezados
-                .allowCredentials(false); // Las credenciales no se permiten con "*"
+                .allowCredentials (false); // Las credenciales no se permiten con "*"
     }
 }
