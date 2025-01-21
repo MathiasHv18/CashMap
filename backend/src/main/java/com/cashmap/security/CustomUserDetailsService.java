@@ -4,6 +4,7 @@ import com.cashmap.entity.User;
 import com.cashmap.exception.ResourceNotFoundException;
 import com.cashmap.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,9 +14,10 @@ import org.springframework.stereotype.Service;
 import java.util.Collections;
 
 @Service
-@RequiredArgsConstructor
 public class CustomUserDetailsService implements UserDetailsService {
-    private final UserRepository userRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws ResourceNotFoundException {
