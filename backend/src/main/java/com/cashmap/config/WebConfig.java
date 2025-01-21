@@ -59,6 +59,8 @@ public class WebConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(antMatcher("*")).permitAll()
+                        .requestMatchers(antMatcher("/auth/register/user")).permitAll()
+
 
                         .requestMatchers("/api/v1/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**", "/webjars/**").permitAll()
                         .anyRequest().authenticated()
