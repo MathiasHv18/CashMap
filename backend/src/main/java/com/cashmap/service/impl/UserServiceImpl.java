@@ -36,15 +36,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserResponseDTO registerUser(RegisterUserRequestDTO registerUserRequestDTO) {
-        return registerUserCategory(registerUserRequestDTO, Rol.Regular);
+        return registerUserCategory(registerUserRequestDTO);
     }
 
 
-    private UserResponseDTO registerUserCategory(RegisterUserRequestDTO registerUserRequestDTO, Rol rol) {
-        boolean existsByEmail = userRepository.existsByMail(registerUserRequestDTO.getEmail());
+    private UserResponseDTO registerUserCategory(RegisterUserRequestDTO registerUserRequestDTO) {
+
+
+        boolean existsByEmail = userRepository.existsByMail(registerUserRequestDTO.getMail());
         if (existsByEmail) {
-            Optional<User> user = userRepository.findByMail(registerUserRequestDTO.getEmail());
-            Integer userId = user.get().getIdUser().intValue(); // Cambio de getUsuarioId() a getId()
+            Optional<User> user = userRepository.findByMail(registerUserRequestDTO.getMail());
+            Integer userId = user.get().getIdUser();
 
             boolean alreadyExists = userRepository.existsById(userId);
 
@@ -53,7 +55,8 @@ public class UserServiceImpl implements UserService {
             }
         }
 
-        CategoryUser categoryUser = categoryUserRepository.findByCategoryUser(rol).orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+        CategoryUser categoryUser = categoryUserRepository.findByName(Rol.USER).orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+        System.out.println("Fetched categoryUser: " + categoryUser.getCategoryUser());
 
         registerUserRequestDTO.setPassword(passwordEncoder.encode(registerUserRequestDTO.getPassword()));
 

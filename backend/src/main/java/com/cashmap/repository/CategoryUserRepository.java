@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface CategoryUserRepository extends JpaRepository<CategoryUser, Integer> {
-    Optional<CategoryUser> findByCategoryUser(Rol categoryUser);
+    Optional<CategoryUser> findByName(Rol name);
 }

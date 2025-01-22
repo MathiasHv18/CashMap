@@ -6,7 +6,7 @@ public class RegisterUserRequestDTO {
     @NotBlank(message = "Name is mandatory")
     private String name;
     @NotBlank(message = "Email is mandatory")
-    private String email;
+    private String mail;
     @NotBlank(message = "Password is mandatory")
     private String password;
     // Optional
@@ -21,12 +21,12 @@ public class RegisterUserRequestDTO {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
+    public String getMail() {
+        return mail;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.mail = email;
     }
 
     public String getPassword() {
