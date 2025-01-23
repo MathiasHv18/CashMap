@@ -61,11 +61,10 @@ public class UserServiceImpl implements UserService {
         registerUserRequestDTO.setPassword(passwordEncoder.encode(registerUserRequestDTO.getPassword()));
 
         User user = userMapper.toUserEntity(registerUserRequestDTO);
-
         user.setCategoryUser(categoryUser);
-        userRepository.save(user);
+        User savedUser = userRepository.save(user);
 
-        return userMapper.toUserResponseDTO(user);
+        return userMapper.toUserResponseDTO(savedUser);
     }
 
 }

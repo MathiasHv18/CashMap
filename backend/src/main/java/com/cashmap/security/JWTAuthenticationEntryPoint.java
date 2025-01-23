@@ -28,11 +28,10 @@ public class JWTAuthenticationEntryPoint implements AuthenticationEntryPoint {
         }
 
 
+
         response.setStatus(HttpStatus.UNAUTHORIZED.value());
 
-
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
-
     }
 
     private String convertObjectToJson(Object object) throws JsonProcessingException {

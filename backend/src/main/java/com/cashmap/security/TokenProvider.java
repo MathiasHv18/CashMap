@@ -4,8 +4,6 @@ import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import jakarta.annotation.PostConstruct;
-import lombok.RequiredArgsConstructor;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -14,7 +12,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Component;
 
-import javax.management.relation.RoleNotFoundException;
 import java.security.Key;
 import java.util.Collections;
 import java.util.Date;
@@ -22,6 +19,7 @@ import java.util.List;
 
 @Component
 public class TokenProvider {
+
     @Value("${jwt.secret}")
     private String jwtSecret;
 
@@ -30,6 +28,10 @@ public class TokenProvider {
 
     private Key key;
     private JwtParser jwtParser;
+
+    public TokenProvider() {
+        // Default constructor
+    }
 
     @PostConstruct
     public void init() {
@@ -55,6 +57,22 @@ public class TokenProvider {
         List<GrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority(role));
         User principal = new User(claims.getSubject(), "", authorities);
         return new UsernamePasswordAuthenticationToken(principal, token, authorities);
+    }
+
+    public String getMail(String token) {
+        if (token.startsWith("Bearer ")) {
+            token = token.substring(7);
+        }
+
+        Claims claims = jwtParser.parseClaimsJws(token).getBody();
+
+        String role = claims.get("sub").toString();
+
+        List<GrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority(role));
+
+        User user = new User(claims.getSubject(), "", authorities);
+
+        return user.getUsername();
     }
 
     public boolean validateToken(String authToken) {
