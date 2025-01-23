@@ -58,8 +58,9 @@ public class WebConfig {
                 )
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/auth/**").permitAll() // This will allow all /auth/** endpoints
-                        .requestMatchers("/api/v1/auth/**").permitAll()
+                        .requestMatchers("/auth/register").permitAll() // This will allow all /auth/** endpoints
+                        .requestMatchers("/auth/login").permitAll()
+                        .requestMatchers("/sentence").permitAll()
                         .requestMatchers("/api/v1/swagger-ui/**", "/v3/api-docs/**").permitAll()
                         .anyRequest().authenticated()
                 )

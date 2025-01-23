@@ -1,6 +1,8 @@
 package com.cashmap.service.impl;
 
+import com.cashmap.dto.request.LoginUserRequestDTO;
 import com.cashmap.dto.request.RegisterUserRequestDTO;
+import com.cashmap.dto.response.AuthResponseDTO;
 import com.cashmap.dto.response.UserResponseDTO;
 import com.cashmap.entity.CategoryUser;
 import com.cashmap.entity.User;
@@ -10,9 +12,12 @@ import com.cashmap.mapper.UserMapper;
 import com.cashmap.repository.CategoryUserRepository;
 import com.cashmap.repository.UserRepository;
 import com.cashmap.security.TokenProvider;
+import com.cashmap.security.UserPrincipal;
 import com.cashmap.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -65,6 +70,23 @@ public class UserServiceImpl implements UserService {
         User savedUser = userRepository.save(user);
 
         return userMapper.toUserResponseDTO(savedUser);
+    }
+
+
+    @Override
+    public AuthResponseDTO login(LoginUserRequestDTO loginUserDTO) {
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(loginUserDTO.getEmail(), loginUserDTO.getPassword())
+        );
+
+        UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
+        User user = userPrincipal.getUser();
+
+        String token = tokenProvider.createAccessToken(authentication);
+
+        AuthResponseDTO authResponseDTO = userMapper.toAuthResponseDTO(user, token);
+
+        return authResponseDTO;
     }
 
 }

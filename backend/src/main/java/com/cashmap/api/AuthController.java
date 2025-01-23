@@ -1,6 +1,8 @@
 package com.cashmap.api;
 
+import com.cashmap.dto.request.LoginUserRequestDTO;
 import com.cashmap.dto.request.RegisterUserRequestDTO;
+import com.cashmap.dto.response.AuthResponseDTO;
 import com.cashmap.dto.response.UserResponseDTO;
 import com.cashmap.service.UserService;
 import jakarta.validation.Valid;
@@ -19,9 +21,15 @@ public class AuthController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/register/user")
+    @PostMapping("/register")
     public ResponseEntity<UserResponseDTO> registerUser(@Valid @RequestBody RegisterUserRequestDTO registerUserRequestDTO) {
         UserResponseDTO userResponseDTO = userService.registerUser(registerUserRequestDTO);
         return new ResponseEntity<>(userResponseDTO, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<AuthResponseDTO> login(@Valid @RequestBody LoginUserRequestDTO loginUserRequestDTO) {
+        AuthResponseDTO authResponseDTO = userService.login(loginUserRequestDTO);
+        return new ResponseEntity<>(authResponseDTO, HttpStatus.OK);
     }
 }
