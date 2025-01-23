@@ -71,12 +71,21 @@ function RegisterPage() {
 
     try {
       await registerUserCall(user);
+      if (success) {
+        navigate("/mainPage");
+      }
     } catch (err) {
+      setError("An error occurred");
       console.log(err);
-    } finally {
-      handleLoginClick();
     }
   };
+
+
+  useEffect(() => {
+    if (success) {
+      navigate("/");
+    }
+  }, [success, navigate]);
 
   //Solo sirve para confirmar los datos de registro en consola
   useEffect(() => {

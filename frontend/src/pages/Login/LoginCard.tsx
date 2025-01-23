@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ResponsiveContainer, LineChart, Line } from "recharts";
 import "./LoginCard.css";
@@ -69,6 +69,12 @@ const LoginCard = () => {
       console.log(err);
     }
   };
+
+    useEffect(() => {
+    if (success) {
+      navigate("/mainPage");
+    }
+  }, [success, navigate]);
 
   return (
     <div className="LoginCard_outerBox">
