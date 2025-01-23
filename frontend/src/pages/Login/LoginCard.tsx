@@ -3,10 +3,19 @@ import { useNavigate } from "react-router-dom";
 import { ResponsiveContainer, LineChart, Line } from "recharts";
 import "./LoginCard.css";
 import useSentences from "../../hooks/useSentences";
+import useLoginUser from "../../hooks/useLoginUser";
+import { loginUserRequest } from "../../interfaces/loginUser";
 
 const LoginCard = () => {
   const { sentences, loading, error: fetchError } = useSentences();
-  const [email, setEmail] = useState("");
+  const [mail, setmail] = useState("");
+  const {
+    loginUserCall,
+    loading: loadingLogin,
+    error: loginError,
+    success,
+    response: loginUserResponse,
+  } = useLoginUser();
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const randomSentence = useMemo(() => {
@@ -37,13 +46,28 @@ const LoginCard = () => {
     navigate("/register");
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!email || !password) {
+    if (!mail || !password) {
       setError("Both fields are required.");
       return;
     }
     setError("");
+
+    const user: loginUserRequest = {
+      mail,
+      password,
+    };
+
+    try {
+      await loginUserCall(user);
+      if (success) {
+        navigate("/mainPage");
+      }
+    } catch (err) {
+      setError("An error occurred");
+      console.log(err);
+    }
   };
 
   return (
@@ -65,10 +89,10 @@ const LoginCard = () => {
         </div>
         {error && <p className="LoginCard_error">{error}</p>}
         <input
-          type="email"
+          type="mail"
           placeholder="Email Address"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={mail}
+          onChange={(e) => setmail(e.target.value)}
           required
           className="LoginCard_input"
         />

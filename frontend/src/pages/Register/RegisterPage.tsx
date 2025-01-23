@@ -4,8 +4,8 @@ import TermsModal from "../terms/Terms&Privacy";
 import "./RegisterPage.css";
 import useSentences from "../../hooks/useSentences";
 import useRegisterUser from "../../hooks/useRegisterUser";
-import { registerUserRequest } from "../../interfaces/registerUserRequest";
-import { registerUserResponse } from "../../interfaces/registerUserResponse";
+import { registerUserRequest } from "../../interfaces/registerUser";
+import { registerUserResponse } from "../../interfaces/registerUser";
 
 function RegisterPage() {
   const { sentences, loading, error: fetchError } = useSentences();

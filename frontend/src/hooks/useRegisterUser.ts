@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { registerUserRequest } from "../interfaces/registerUserRequest";
+import { registerUserRequest } from "../interfaces/registerUser";
 import { registerUser } from "../api/userAuth";
-import { registerUserResponse } from "../interfaces/registerUserResponse";
+import { registerUserResponse } from "../interfaces/registerUser";
 
 const useRegisterUser = () => {
   const [loading, setLoading] = useState(false);
@@ -15,7 +15,7 @@ const useRegisterUser = () => {
     setSuccess(false);
     try {
       const res = await registerUser(user); // Guardar la respuesta de la API
-      setResponse(res); 
+      setResponse(res);
       setSuccess(true);
     } catch (err: any) {
       setError(err.response?.data?.message || "An error occurred");
