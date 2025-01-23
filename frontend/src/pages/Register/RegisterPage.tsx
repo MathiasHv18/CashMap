@@ -1,18 +1,27 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import TermsModal from "../terms/Terms&Privacy";
 import "./RegisterPage.css";
 import useSentences from "../../hooks/useSentences";
-
+import useRegisterUser from "../../hooks/useRegisterUser";
+import { registerUserRequest } from "../../interfaces/registerUserRequest";
+import { registerUserResponse } from "../../interfaces/registerUserResponse";
 
 function RegisterPage() {
   const { sentences, loading, error: fetchError } = useSentences();
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
+  const {
+    registerUserCall,
+    loading: loadingRegister,
+    error: registerError,
+    success,
+    response: registerUserResponse,
+  } = useRegisterUser();
+  const [name, setname] = useState("");
+  const [mail, setmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
-  const [modalType, setModalType] = useState<'privacy' | 'terms' | null>(null);
+  const [modalType, setModalType] = useState<"privacy" | "terms" | null>(null);
   const randomSentence = useMemo(() => {
     if (sentences.length > 0) {
       const randomIndex = Math.floor(Math.random() * sentences.length);
@@ -20,7 +29,6 @@ function RegisterPage() {
     }
     return null;
   }, [sentences]);
-
 
   const navigate = useNavigate();
 
@@ -30,21 +38,21 @@ function RegisterPage() {
 
   const handlePrivacyPolicy = (e: React.MouseEvent) => {
     e.preventDefault();
-    setModalType('privacy');
+    setModalType("privacy");
   };
 
   const handleTermsOfService = (e: React.MouseEvent) => {
     e.preventDefault();
-    setModalType('terms');
+    setModalType("terms");
   };
 
   const handleCloseModal = () => {
     setModalType(null);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!username || !email || !password || !confirmPassword) {
+    if (!name || !mail || !password || !confirmPassword) {
       setError("All fields are required.");
       return;
     }
@@ -53,7 +61,29 @@ function RegisterPage() {
       return;
     }
     setError("");
+
+    const user: registerUserRequest = {
+      name,
+      mail,
+      password,
+      lastname: "",
+    };
+
+    try {
+      await registerUserCall(user);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      handleLoginClick();
+    }
   };
+
+  //Solo sirve para confirmar los datos de registro en consola
+  useEffect(() => {
+    if (success) {
+      console.log(registerUserResponse);
+    }
+  }, [success, registerUserResponse]);
 
   return (
     <div className="RegisterPage_outerBox">
@@ -63,16 +93,16 @@ function RegisterPage() {
         <input
           type="text"
           className="RegisterPage_input"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setname(e.target.value)}
         />
         <input
-          type="email"
+          type="Email"
           className="RegisterPage_input"
           placeholder="Email Address"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={mail}
+          onChange={(e) => setmail(e.target.value)}
         />
         <input
           type="password"
@@ -88,12 +118,20 @@ function RegisterPage() {
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
-        <button type="submit" className="RegisterPage_button">Register</button>
+        <button type="submit" className="RegisterPage_button">
+          Register
+        </button>
         <span className="RegisterPage_span">
-          By clicking "Register" you agree that you have read CashMap's 
-          <a href="#" onClick={handlePrivacyPolicy}> Privacy Policy </a> 
-          and have reviewed and agree to CashMap's 
-          <a href="#" onClick={handleTermsOfService}> Terms of Service.</a>
+          By clicking "Register" you agree that you have read CashMap's
+          <a href="#" onClick={handlePrivacyPolicy}>
+            {" "}
+            Privacy Policy{" "}
+          </a>
+          and have reviewed and agree to CashMap's
+          <a href="#" onClick={handleTermsOfService}>
+            {" "}
+            Terms of Service.
+          </a>
         </span>
         <span className="RegisterPage_span2">
           Already have an account? <a onClick={handleLoginClick}>Sign in</a>
@@ -103,7 +141,7 @@ function RegisterPage() {
       <TermsModal
         isOpen={modalType !== null}
         onClose={handleCloseModal}
-        type={modalType || 'terms'}
+        type={modalType || "terms"}
       />
     </div>
   );

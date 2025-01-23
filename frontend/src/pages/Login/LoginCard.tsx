@@ -30,7 +30,6 @@ const LoginCard = () => {
   const navigate = useNavigate();
 
   const handlePassword = () => {
-    console.log(sentences[1].sentence);
     navigate("/recoverPassword");
   };
 
