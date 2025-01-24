@@ -39,10 +39,10 @@ public class TransactionController {
         return new ResponseEntity<Transaction>(transaction, HttpStatus.OK);
     }
 
-    @GetMapping("/user/{userId}")
-    public ResponseEntity<List<TransactionResponseDTO>> getUserTransactions(@PathVariable Integer userId, @RequestHeader("Authorization") String bearerToken){
+    @GetMapping
+    public ResponseEntity<List<TransactionResponseDTO>> getUserTransactions(@RequestHeader("Authorization") String bearerToken){
         User user = userService.getUser(bearerToken);
-        List<TransactionResponseDTO> transactions = transactionService.getUserTransactions(userId);
+        List<TransactionResponseDTO> transactions = transactionService.getUserTransactions(user.getIdUser());
         return new ResponseEntity<List<TransactionResponseDTO>>(transactions, HttpStatus.OK);
     }
 }
