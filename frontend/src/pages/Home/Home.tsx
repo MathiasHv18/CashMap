@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Home.css";
 
 function Home() {
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    console.log("Token:", token);
+  }, []);
+
   return (
     <div className="Home_outerBox">
       <h1 className="Home_tittle">Expense analysis</h1>

@@ -71,28 +71,18 @@ function RegisterPage() {
 
     try {
       await registerUserCall(user);
-      if (success) {
-        navigate("/mainPage");
-      }
     } catch (err) {
       setError("An error occurred");
       console.log(err);
     }
   };
 
-
   useEffect(() => {
+    console.log(registerUserResponse);
     if (success) {
       navigate("/");
     }
   }, [success, navigate]);
-
-  //Solo sirve para confirmar los datos de registro en consola
-  useEffect(() => {
-    if (success) {
-      console.log(registerUserResponse);
-    }
-  }, [success, registerUserResponse]);
 
   return (
     <div className="RegisterPage_outerBox">

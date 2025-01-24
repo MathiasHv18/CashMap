@@ -61,17 +61,15 @@ const LoginCard = () => {
 
     try {
       await loginUserCall(user);
-      if (success) {
-        navigate("/mainPage");
-      }
-    } catch (err) {
-      setError("An error occurred");
-      console.log(err);
+    } catch (error) {
+      console.error(error);
     }
   };
 
-    useEffect(() => {
-    if (success) {
+  useEffect(() => {
+    if (success && loginUserResponse) {
+      console.log(loginUserResponse);
+      localStorage.setItem("token", loginUserResponse.token); // Guardar el token
       navigate("/mainPage");
     }
   }, [success, navigate]);

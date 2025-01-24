@@ -4,6 +4,7 @@ import LoginCard from "./pages/Login/LoginCard";
 import RegisterPage from "./pages/Register/RegisterPage";
 import AppMain from "./pages/appMain/AppMain";
 import { Navigate } from "react-router-dom";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
@@ -11,7 +12,14 @@ function App() {
       <Routes>
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/" element={<LoginCard />} /> {}
-        <Route path="/mainPage" element={<AppMain />} />
+        <Route
+          path="/mainPage"
+          element={
+            <PrivateRoute>
+              <AppMain />
+            </PrivateRoute>
+          }
+        />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
