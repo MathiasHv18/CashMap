@@ -1,5 +1,5 @@
-import { registerUserRequest } from "../interfaces/registerUser";
-import { loginUserRequest } from "../interfaces/loginUser";
+import { registerUserRequest } from "../interfaces/RegisterUserInterface";
+import { loginUserRequest } from "../interfaces/LoginUserInterface";
 import axiosInstance from "./axiosInstance";
 
 export const registerUser = async (user: registerUserRequest) => {
@@ -7,7 +7,7 @@ export const registerUser = async (user: registerUserRequest) => {
   return response.data;
 };
 
-export const loginUser = async (user : loginUserRequest) => {
+export const loginUser = async (user: loginUserRequest) => {
   const response = await axiosInstance.post("/auth/login", user);
   return response.data;
-}
+};

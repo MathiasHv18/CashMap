@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { registerUserRequest } from "../interfaces/registerUser";
-import { registerUser } from "../api/userAuth";
-import { registerUserResponse } from "../interfaces/registerUser";
+import { registerUserRequest } from "../interfaces/RegisterUserInterface";
+import { registerUser } from "../api/userAuthApi";
+import { registerUserResponse } from "../interfaces/RegisterUserInterface";
 
 const useRegisterUser = () => {
   const [loading, setLoading] = useState(false);

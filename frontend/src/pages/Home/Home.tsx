@@ -1,31 +1,36 @@
 import React, { useState, useEffect } from "react";
 import useTransaction from "../../hooks/useTransaction";
 import "./Home.css";
-import { Transaction } from "../../interfaces/transactionInterface";
+import { Transaction } from "../../interfaces/TransactionInterface";
+import useUserProfile from "../../hooks/useUserProfile";
 
 function Home() {
-  const { getTransactions, loading, error, success, response } = useTransaction();
+  const { getTransactions, loadingT, errorT, successT, responseT } =
+    useTransaction();
+  const { getUser, loadingU, errorU, successU, responseU } = useUserProfile();
   const [transactions, setTransactions] = useState<Transaction[]>([]);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    console.log("Token:", token);
-  }, []);
-
-  useEffect(() => {
     getTransactions();
+    getUser();
   }, []);
 
   useEffect(() => {
-    if (success && response) {
-      console.log(response);
-      setTransactions(response);
+    if (successT && responseT) {
+      console.log(responseT);
+      setTransactions(responseT);
     }
-  }, [success, response]);
+  }, [successT, responseT]);
+
+  useEffect(() => {
+    if (successU && responseU) {
+      console.log(responseU);
+    }
+  }, [successU, responseU]);
 
   return (
     <div className="Home_outerBox">
-      <h1 className="Home_tittle">Expense analysis</h1>
+      <h1 className="Home_tittle">{responseU?.name}'s expense analysis</h1>
       <div className="Home_inputBox">
         <h2 className="Home_subtittle">Insert your income </h2>
         <h5 className="Home_h5">Add your expenses for analysis</h5>

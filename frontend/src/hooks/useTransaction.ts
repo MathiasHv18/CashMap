@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { Transaction } from "../interfaces/transactionInterface";
+import { Transaction } from "../interfaces/TransactionInterface";
 import { getAllTransactions } from "../api/transactionApi";
 
 const useTransaction = () => {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState(false);
-  const [response, setResponse] = useState<Transaction[] | null>(null);
+  const [loadingT, setLoading] = useState(false);
+  const [errorT, setError] = useState<string | null>(null);
+  const [successT, setSuccess] = useState(false);
+  const [responseT, setResponse] = useState<Transaction[] | null>(null);
 
   const getTransactions = async () => {
     setLoading(true);
@@ -23,7 +23,7 @@ const useTransaction = () => {
     }
   };
 
-  return { getTransactions, loading, error, success, response };
+  return { getTransactions, loadingT, errorT, successT, responseT };
 };
 
 export default useTransaction;

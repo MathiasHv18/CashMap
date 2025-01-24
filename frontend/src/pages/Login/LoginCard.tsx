@@ -4,7 +4,7 @@ import { ResponsiveContainer, LineChart, Line } from "recharts";
 import "./LoginCard.css";
 import useSentences from "../../hooks/useSentences";
 import useLoginUser from "../../hooks/useLoginUser";
-import { loginUserRequest } from "../../interfaces/loginUser";
+import { loginUserRequest } from "../../interfaces/LoginUserInterface";
 
 const LoginCard = () => {
   const { sentences, loading, error: fetchError } = useSentences();
@@ -69,7 +69,6 @@ const LoginCard = () => {
   useEffect(() => {
     if (success && loginUserResponse) {
       console.log(loginUserResponse);
-      localStorage.setItem("token", loginUserResponse.token); // Guardar el token
       navigate("/mainPage");
     }
   }, [success, navigate]);
