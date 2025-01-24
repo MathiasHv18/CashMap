@@ -1,11 +1,27 @@
 import React, { useState, useEffect } from "react";
+import useTransaction from "../../hooks/useTransaction";
 import "./Home.css";
+import { Transaction } from "../../interfaces/transactionInterface";
 
 function Home() {
+  const { getTransactions, loading, error, success, response } = useTransaction();
+  const [transactions, setTransactions] = useState<Transaction[]>([]);
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     console.log("Token:", token);
   }, []);
+
+  useEffect(() => {
+    getTransactions();
+  }, []);
+
+  useEffect(() => {
+    if (success && response) {
+      console.log(response);
+      setTransactions(response);
+    }
+  }, [success, response]);
 
   return (
     <div className="Home_outerBox">
@@ -35,12 +51,14 @@ function Home() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Example</td>
-              <td>$100</td>
-              <td>2025-01-01</td>
-              <td>Food</td>
-            </tr>
+            {transactions.map((transaction) => (
+              <tr key={transaction.idTransaction}>
+                <td>{transaction.concept}</td>
+                <td>${transaction.amount}</td>
+                <td>{transaction.date}</td>
+                <td>{transaction.categoryDescription}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
