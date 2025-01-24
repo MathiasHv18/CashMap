@@ -1,10 +1,10 @@
 export interface User{
-    id: Number,
+    id: number,
     categoryUser: string,
     name: string,
     lastname: string,
     mail: string,
     age: number,
-    fisicalMoney: Number,
-    digitalMoney: Number
+    fisicalMoney: number,
+    digitalMoney: number
 }
