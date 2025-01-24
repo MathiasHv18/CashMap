@@ -76,7 +76,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public AuthResponseDTO login(LoginUserRequestDTO loginUserDTO) {
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(loginUserDTO.getEmail(), loginUserDTO.getPassword())
+                new UsernamePasswordAuthenticationToken(loginUserDTO.getMail(), loginUserDTO.getPassword())
         );
 
         UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
@@ -87,6 +87,13 @@ public class UserServiceImpl implements UserService {
         AuthResponseDTO authResponseDTO = userMapper.toAuthResponseDTO(user, token);
 
         return authResponseDTO;
+    }
+
+    @Override
+    public User getUser(String bearerToken) {
+        String mail = tokenProvider.getMail(bearerToken);
+        User user = userRepository.findByMail(mail).orElseThrow(() -> new ResourceNotFoundException("Usuario con correo " + mail + " no fue encontrado"));
+        return user;
     }
 
 }

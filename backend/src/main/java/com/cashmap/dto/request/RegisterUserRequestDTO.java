@@ -8,7 +8,7 @@ public class RegisterUserRequestDTO {
     @NotBlank(message = "Email is mandatory")
     private String mail;
     @NotBlank(message = "Password is mandatory")
-    private String password;
+        private String password;
     // Optional
     private String lastname;
 
