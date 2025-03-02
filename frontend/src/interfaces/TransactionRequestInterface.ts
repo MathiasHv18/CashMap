@@ -3,6 +3,6 @@ export interface TransactionRequest {
   concept: string;
   date: string;
   userId: number;
-  idCategoryTran: number;
+  categoryTransaction: string;
   idTypeTran: number;
 }

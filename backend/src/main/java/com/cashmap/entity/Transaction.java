@@ -21,11 +21,10 @@ public class Transaction {
     @JoinColumn(name = "idTypeTransaction", referencedColumnName = "idTypeTransaction", nullable = false)
     private TypeTransaction typeTransaction;
 
-    @ManyToOne
-    @JoinColumn(name = "idCategoryTransaction",referencedColumnName = "idCategoryTransaction", nullable = false)
-    private CategoryTransaction categoryTransaction;
+    @Column(name = "CategoryTransaction", nullable = false)
+    private String categoryTransaction;
 
-    @Column(name = "concept", nullable = false, length = 20)
+    @Column(name = "concept", nullable = false, length = 130)
     private String concept;
 
     @Column(name = "amount", nullable = false)
@@ -43,7 +42,7 @@ public class Transaction {
         return typeTransaction;
     }
 
-    public CategoryTransaction getCategoryTransaction() {
+    public String getCategoryTransaction() {
         return categoryTransaction;
     }
 
@@ -68,7 +67,7 @@ public class Transaction {
         this.typeTransaction = typeTransaction;
     }
 
-    public void setCategoryTransaction(CategoryTransaction categoryTransaction) {
+    public void setCategoryTransaction(String categoryTransaction) {
         this.categoryTransaction = categoryTransaction;
     }
 

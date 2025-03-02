@@ -10,7 +10,7 @@ public class TransactionRequestDTO {
     private String concept;
     private String date;
     private Integer userId;
-    private Integer idCategoryTran;
+    private String categoryTransaction;
     private Integer idTypeTran;
 
     // Getters
@@ -30,8 +30,8 @@ public class TransactionRequestDTO {
         return userId;
     }
 
-    public Integer getIdCategoryTran() {
-        return idCategoryTran;
+    public String getCategoryTransaction() {
+        return categoryTransaction;
     }
 
     public Integer getIdTypeTran() {
@@ -55,8 +55,8 @@ public class TransactionRequestDTO {
         this.userId = userId;
     }
 
-    public void setIdCategoryTran(Integer idCategoryTran) {
-        this.idCategoryTran = idCategoryTran;
+    public void setCategoryTran(String categoryTran) {
+        this.categoryTransaction = categoryTran;
     }
 
     public void setIdTypeTran(Integer idTypeTran) {

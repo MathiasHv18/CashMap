@@ -4,6 +4,9 @@ import useUserProfile from "../../hooks/useUserProfile";
 import "./Home.css";
 import { TransactionRequest } from "../../interfaces/TransactionRequestInterface";
 import { TransactionResponse } from "../../interfaces/TransactionResponseInterface";
+import { useCategoryTransaction } from "../../hooks/useCategoryTransaction";
+import { CategoryTransactionRequest } from "../../interfaces/CategoryTransactionRequestInterface";
+import { CategoryTransactionResponse } from "../../interfaces/CategoryTransactionResponseInterface";
 
 function Home() {
   const {
@@ -24,11 +27,23 @@ function Home() {
   const [amount, setAmount] = useState<number | undefined>(0);
   const [date, setDate] = useState("");
   const [categoryDescription, setCategoryDescription] = useState("");
+  const { fetchCategories, loadingGC, errorGC, successGC, responseGC } =
+    useCategoryTransaction();
 
   useEffect(() => {
-    fetchTransactions();
     getUser();
+    fetchTransactions();
   }, []);
+
+  useEffect(() => {
+    fetchCategories(responseU?.id || 0);
+  }, [responseU]);
+
+  useEffect(() => {
+    if (successGC && responseGC) {
+      console.log(responseGC);
+    }
+  }, [successGC, responseGC]);
 
   useEffect(() => {
     if (successT && responseT) {
@@ -44,7 +59,7 @@ function Home() {
 
   useEffect(() => {
     if (successTR && responseTR) {
-      console.log(responseTR, '11902191354');
+      console.log(responseTR, "11902191354");
     }
   }, [successTR, responseTR]);
 
@@ -59,9 +74,11 @@ function Home() {
       concept,
       date,
       userId: responseU?.id || 0,
-      idCategoryTran: 1,
+      categoryTransaction: categoryDescription,
       idTypeTran: 1,
     };
+
+    console.log("Data Transaction:", dataTransaction);
 
     await addTransaction(dataTransaction);
     fetchTransactions();
@@ -96,12 +113,21 @@ function Home() {
           onChange={(e) => setDate(e.target.value)}
         />
         <h3 className="Home_h3">Category</h3>
-        <input
+        <select
           className="Home_input"
-          type="text"
           value={categoryDescription}
           onChange={(e) => setCategoryDescription(e.target.value)}
-        />{" "}
+        >
+          <option value="">Select a category</option>
+          {responseGC?.map((category: CategoryTransactionResponse) => (
+            <option
+              key={category.idCategoryTransaction}
+              value={category.categoryTransaction}
+            >
+              {category.categoryTransaction}
+            </option>
+          ))}
+        </select>
         <br />
         <button className="Home_button" onClick={handleAddTransaction}>
           Add

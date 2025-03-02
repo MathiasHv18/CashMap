@@ -38,11 +38,8 @@ public class TransactionServiceImpl implements TransactionService {
         transaction.setAmount(requestDTO.getAmount());
         transaction.setConcept(requestDTO.getConcept());
         transaction.setDate(LocalDate.parse(requestDTO.getDate()));
+        transaction.setCategoryTransaction(requestDTO.getCategoryTransaction());
 
-        // Validar y asignar categoría
-        CategoryTransaction category = categoryTransactionRepository.findById(requestDTO.getIdCategoryTran())
-                .orElseThrow(() -> new RuntimeException("Categoría no encontrada"));
-        transaction.setCategoryTransaction(category);
 
         // Validar y asignar tipo de transacción
         TypeTransaction type = typeTransactionRepository.findById(requestDTO.getIdTypeTran())
@@ -88,7 +85,7 @@ public class TransactionServiceImpl implements TransactionService {
             responseDTO.setConcept(transaction.getConcept());
             responseDTO.setDate(transaction.getDate().toString());
             responseDTO.setUserName(userTransaction.getUser().getName());
-            responseDTO.setCategoryDescription(transaction.getCategoryTransaction().getCategoryTransaction());
+            responseDTO.setCategoryDescription(transaction.getCategoryTransaction());
             responseDTO.setTypeDescription(transaction.getTypeTransaction().getTypeTransaction());
 
             return responseDTO;
