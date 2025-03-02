@@ -1,11 +1,9 @@
 package com.cashmap.dto.response;
 
-import com.cashmap.entity.CategoryUser;
-
 public class UserProfileResponseDTO {
 
     private Integer id;
-    private CategoryUser categoryUser;
+    private String categoryUser;
     private String name;
     private String lastname;
     private String mail;
@@ -22,11 +20,11 @@ public class UserProfileResponseDTO {
         this.id = id;
     }
 
-    public CategoryUser getCategoryUser() {
+    public String getCategoryUser() {
         return categoryUser;
     }
 
-    public void setCategoryUser(CategoryUser categoryUser) {
+    public void setCategoryUser(String categoryUser) {
         this.categoryUser = categoryUser;
     }
 

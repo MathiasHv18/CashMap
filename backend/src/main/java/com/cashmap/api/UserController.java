@@ -27,7 +27,7 @@ public class UserController {
         UserProfileResponseDTO userProfileResponseDTO = new UserProfileResponseDTO();
         userProfileResponseDTO.setId(user.getIdUser());
         userProfileResponseDTO.setMail(user.getMail());
-        userProfileResponseDTO.setCategoryUser(user.getCategoryUser());
+        userProfileResponseDTO.setCategoryUser(user.getCategoryUser().getCategoryUser().name());
         userProfileResponseDTO.setLastname(user.getLastname());
         userProfileResponseDTO.setAge(user.getAge());
         userProfileResponseDTO.setDigitalMoney(user.getDigitalMoney());

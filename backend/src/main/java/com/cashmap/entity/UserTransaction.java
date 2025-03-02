@@ -12,12 +12,12 @@ public class UserTransaction {
     private UserTransactionId id;
 
     @ManyToOne
-    @MapsId("user") // Mapea el atributo "user" en UserTransactionId
+    @MapsId("user")
     @JoinColumn(name = "idUser", referencedColumnName = "idUser", nullable = false)
     private User user;
 
     @ManyToOne
-    @MapsId("transaction") // Mapea el atributo "transaction" en UserTransactionId
+    @MapsId("transaction")
     @JoinColumn(name = "idTransaction", referencedColumnName = "idTransaction", nullable = false)
     private Transaction transaction;
 

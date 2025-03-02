@@ -44,7 +44,7 @@ function Home() {
 
   useEffect(() => {
     if (successTR && responseTR) {
-      console.log(responseTR);
+      console.log(responseTR, '11902191354');
     }
   }, [successTR, responseTR]);
 

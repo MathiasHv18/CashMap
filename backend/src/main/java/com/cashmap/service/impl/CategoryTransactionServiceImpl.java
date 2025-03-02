@@ -21,11 +21,11 @@ public class CategoryTransactionServiceImpl implements CategoryTransactionServic
         return categoryTransactionRepository.save(categoryTransaction);
     }
 
-    //Transactional
-    //verride
-    //ublic List<CategoryTransaction> getAllCategories() {
-        //return categoryTransactionRepository.findAll();
-    //}
+    @Transactional
+    @Override
+    public List<CategoryTransaction> getAllCategories() {
+        return categoryTransactionRepository.findAll();
+    }
 
     //@Transactional
     //Override

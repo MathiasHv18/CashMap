@@ -27,7 +27,6 @@ public class SentenceController {
     @GetMapping
     public ResponseEntity<List<Sentence>> getAllSentences() {
         List<Sentence> sentences = sentenceService.getAllSentences();
-        sentences.forEach(sentence -> System.out.println(sentence.toString()));
         return ResponseEntity.ok(sentences);
     }
 

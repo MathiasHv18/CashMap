@@ -15,8 +15,10 @@ const useLoginUser = () => {
     setSuccess(false);
     try {
       const res = await loginUser(user);
+      console.log("Login Response:", res);
       setResponse(res);
       setSuccess(true);
+      localStorage.setItem("token", res.token);
     } catch (err: any) {
       setError(err.response?.data?.message || "An error occurred");
     } finally {

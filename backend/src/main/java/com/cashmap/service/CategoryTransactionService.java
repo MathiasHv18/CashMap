@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface CategoryTransactionService {
     CategoryTransaction createCategory(CategoryTransaction categoryTransaction);
-    //List<CategoryTransaction> getAllCategories();
+    List<CategoryTransaction> getAllCategories();
     //void deleteCategory(Integer id);
 }
