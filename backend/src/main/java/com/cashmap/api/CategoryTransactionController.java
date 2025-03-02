@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@PreAuthorize("hasAnyRole('USER', 'ADMIN')")
 @RestController
 @RequestMapping("/categoryTransaction")
 public class CategoryTransactionController {
@@ -20,17 +21,16 @@ public class CategoryTransactionController {
     @Autowired
     private CategoryTransactionService categoryTransactionService;
 
-    @PreAuthorize("hasRole('ADMINISTRATOR')")
-    @PostMapping
-    public ResponseEntity<CategoryTransaction> createCategory(@RequestBody CategoryTransaction categoryTransaction){
-        CategoryTransaction newCategory = categoryTransactionService.createCategory(categoryTransaction);
-        return new ResponseEntity<CategoryTransaction>(newCategory, HttpStatus.CREATED);
+    @PostMapping("/{userId}")
+    public ResponseEntity<CategoryTransaction> createCategory(@PathVariable Integer userId,
+                                                              @RequestBody CategoryTransaction categoryTransaction){
+        CategoryTransaction newCategory = categoryTransactionService.createCategory(userId, categoryTransaction);
+        return new ResponseEntity<>(newCategory, HttpStatus.CREATED);
     }
 
-    @PreAuthorize("hasRole('ADMINISTRATOR')")
-    @GetMapping
-    public ResponseEntity<List<CategoryTransaction>> getAllCategories(){
-        List<CategoryTransaction> categories = categoryTransactionService.getAllCategories();
+    @GetMapping("/{userId}")
+    public ResponseEntity<List<CategoryTransaction>> getCategoriesByUser(@PathVariable Integer userId){
+        List<CategoryTransaction> categories = categoryTransactionService.getCategoriesByUser(userId);
         return ResponseEntity.ok(categories);
     }
 

@@ -1,9 +1,3 @@
--- Populating "CATEGORY_TRANSACTIONS"
-INSERT INTO "CATEGORY_TRANSACTIONS" ("idCategoryTransaction", "categoryTransaction") VALUES
-                                                                                         (1, 'Food'),
-                                                                                         (2, 'Utilities'),
-                                                                                         (3, 'Entertainment');
-
 -- Populating "CATEGORY_USERS"
 INSERT INTO "CATEGORY_USERS" ("idCategoryUser", "categoryUser") VALUES
                                                                     (1, 'USER'),

@@ -13,7 +13,11 @@ public class CategoryTransaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idCategoryTransaction;
 
-    @Column(name = "categoryTransaction", nullable = false, length = 15)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idUser", referencedColumnName = "idUser", nullable = false)
+    private User user;
+
+    @Column(name = "categoryTransaction")
     private String categoryTransaction;
 
     public Integer getIdCategoryTransaction() {
@@ -31,5 +35,9 @@ public class CategoryTransaction {
 
     public void setCategoryTransaction(String categoryTransaction) {
         this.categoryTransaction = categoryTransaction;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
