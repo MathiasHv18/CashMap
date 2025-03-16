@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ResponsiveContainer, LineChart, Line } from "recharts";
-import "./LoginCard.css";
+import styles from "./LoginCard.module.css";
 import useSentences from "../../hooks/useSentences";
 import useLoginUser from "../../hooks/useLoginUser";
 import { loginUserRequest } from "../../interfaces/LoginUserInterface";
@@ -74,10 +74,10 @@ const LoginCard = () => {
   }, [success, navigate]);
 
   return (
-    <div className="LoginCard_outerBox">
-      <form className="LoginCard_loginCard" onSubmit={handleSubmit}>
-        <h2 className="LoginCard_title">{randomSentence?.sentence}</h2>
-        <div className="LoginCard_chartContainer">
+    <div className={styles.outerBox}>
+      <form className={styles.loginCard} onSubmit={handleSubmit}>
+        <h2 className={styles.title}>{randomSentence?.sentence}</h2>
+        <div className={styles.chartContainer}>
           <ResponsiveContainer width="100%" height={100}>
             <LineChart data={data}>
               <Line
@@ -90,14 +90,14 @@ const LoginCard = () => {
             </LineChart>
           </ResponsiveContainer>
         </div>
-        {error && <p className="LoginCard_error">{error}</p>}
+        {error && <p className={styles.error}>{error}</p>}
         <input
           type="mail"
           placeholder="Email Address"
           value={mail}
           onChange={(e) => setmail(e.target.value)}
           required
-          className="LoginCard_input"
+          className={styles.input}
         />
         <input
           type="password"
@@ -105,15 +105,15 @@ const LoginCard = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          className="LoginCard_input"
+          className={styles.input}
         />
-        <button type="submit" className="LoginCard_button">
+        <button type="submit" className={styles.button}>
           Login
         </button>
-        <span className="LoginCard_footer">
+        <span className={styles.footer}>
           <a onClick={handlePassword}> I forgot my password</a>
         </span>
-        <span className="LoginCard_footer">
+        <span className={styles.footer}>
           Don't have an account?
           <a onClick={handleRegisterClick}> Register</a>
         </span>

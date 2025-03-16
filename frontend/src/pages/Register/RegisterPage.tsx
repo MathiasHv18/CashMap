@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import TermsModal from "../terms/Terms&Privacy";
-import "./RegisterPage.css";
+import styles from "./RegisterPage.module.css";
 import useSentences from "../../hooks/useSentences";
 import useRegisterUser from "../../hooks/useRegisterUser";
 import { registerUserRequest } from "../../interfaces/RegisterUserInterface";
@@ -85,42 +85,42 @@ function RegisterPage() {
   }, [success, navigate]);
 
   return (
-    <div className="RegisterPage_outerBox">
-      <form className="RegisterPage_registerCard" onSubmit={handleSubmit}>
-        <h2 className="RegisterPage_title">{randomSentence?.sentence}</h2>
-        {error && <p className="RegisterPage_error">{error}</p>}
+    <div className={styles.outerBox}>
+      <form className={styles.registerCard} onSubmit={handleSubmit}>
+        <h2 className={styles.title}>{randomSentence?.sentence}</h2>
+        {error && <p className={styles.error}>{error}</p>}
         <input
           type="text"
-          className="RegisterPage_input"
+          className={styles.input}
           placeholder="Name"
           value={name}
           onChange={(e) => setname(e.target.value)}
         />
         <input
           type="Email"
-          className="RegisterPage_input"
+          className={styles.input}
           placeholder="Email Address"
           value={mail}
           onChange={(e) => setmail(e.target.value)}
         />
         <input
           type="password"
-          className="RegisterPage_input"
+          className={styles.input}
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         <input
           type="password"
-          className="RegisterPage_input"
+          className={styles.input}
           placeholder="Confirm Password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
-        <button type="submit" className="RegisterPage_button">
+        <button type="submit" className={styles.button}>
           Register
         </button>
-        <span className="RegisterPage_span">
+        <span className={styles.span}>
           By clicking "Register" you agree that you have read CashMap's
           <a href="#" onClick={handlePrivacyPolicy}>
             {" "}
@@ -132,7 +132,7 @@ function RegisterPage() {
             Terms of Service.
           </a>
         </span>
-        <span className="RegisterPage_span2">
+        <span className={styles.span2}>
           Already have an account? <a onClick={handleLoginClick}>Sign in</a>
         </span>
       </form>

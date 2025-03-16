@@ -1,0 +1,132 @@
+.outerBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: #f9fafb;
+  padding: 0px;
+}
+
+.loginCard {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  max-width: 25%;
+  width: 100%;
+  text-align: center;
+}
+
+.title {
+  font-size: 170%;
+  margin-bottom: 0px;
+  margin-top: 5px;
+  color: #000000;
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+}
+
+.chartContainer {
+  width: 100%;
+  margin-top: 10%;
+  margin-bottom: 0%;
+}
+
+.input {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #e4e4e7;
+  border-radius: 8px;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #939393;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.button {
+  background: #2f2f31;
+  color: #fafaed;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  width: 100%;
+  margin-top: 15px;
+  transition: background 0.3s ease;
+}
+
+.button:hover {
+  background: #4c4c4f;
+}
+
+.footer {
+  display: block;
+  margin-top: 15px;
+  color: #000000;
+  font-size: 0.9rem;
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+}
+
+.footer a {
+  color: #3b82f6;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 3px;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #145cd0;
+}
+
+@media (max-width: 1200px) {
+  .loginCard {
+    max-width: 30%;
+  }
+}
+
+@media (max-width: 992px) {
+  .loginCard {
+    max-width: 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  .loginCard {
+    max-width: 60%;
+  }
+}
+
+@media (max-width: 576px) {
+  .loginCard {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 400px) {
+  .loginCard {
+    max-width: 90%;
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .footer {
+    font-size: 0.8rem;
+  }
+}

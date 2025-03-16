@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./AppMain.css";
+// import "./AppMain.css";
+import styles from "./AppMain.module.css";
 import Sidebar from "../../components/layouts/Sidebar/Sidebar";
 import Home from "../Home/Home";
 
@@ -11,9 +12,9 @@ function AppMain() {
   };
 
   return (
-    <div className="AppMain_outerBox">
+    <div className={styles.outerBox}>
       <Sidebar isCollapsed={isSidebarCollapsed} onToggle={toggleSidebar} />
-      <main className="AppMain_content">
+      <main className={styles.content}>
         <Home />
       </main>
     </div>

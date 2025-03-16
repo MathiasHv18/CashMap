@@ -1,15 +1,14 @@
-.terms-container {
+.container {
   font-size: 14px;
   text-align: center;
 }
 
-.terms-text {
+.text {
   color: #4b5563;
   line-height: 1.6;
 }
 
-/* Links */
-.terms-link {
+.link {
   color: #3b82f6;
   background: none;
   border: none;
@@ -19,12 +18,11 @@
   font-size: inherit;
 }
 
-.terms-link:hover {
+.link:hover {
   color: #2563eb;
 }
 
-/* Modal Overlay */
-.modal-overlay {
+.overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -34,13 +32,12 @@
   z-index: 1000;
 }
 
-/* Modal Container */
-.modal-container {
+.container {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #ffffff; 
+  background-color: #ffffff;
   padding: 20px;
   border-radius: 12px;
   max-width: 600px;
@@ -50,8 +47,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Modal Header */
-.modal-header {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -60,14 +56,14 @@
   border-bottom: 1px solid #e5e7eb;
 }
 
-.modal-header h2 {
+.header h2 {
   margin: 0;
   font-size: 1.5rem;
   font-weight: 600;
   color: #1f2937;
 }
 
-.close-button {
+.closeButton {
   background: none;
   border: none;
   font-size: 1.5rem;
@@ -82,74 +78,72 @@
   border-radius: 50%;
 }
 
-.close-button:hover {
+.closeButton:hover {
   background-color: #f3f4f6;
-  color: #374151; 
+  color: #374151;
 }
 
-/* Modal Content */
-.modal-content {
+.content {
   overflow-y: auto;
   max-height: calc(80vh - 80px);
   padding-right: 10px;
   color: #374151;
 }
 
-/* Terms Sections */
-.terms-section {
+.section {
   margin-bottom: 24px;
 }
 
-.terms-section h3 {
+.section h3 {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #1f2937; 
+  color: #1f2937;
   margin-bottom: 12px;
 }
 
-.terms-section p,
-.terms-section ul {
+.section p,
+.section ul {
   margin: 0;
   line-height: 1.8;
   color: #4b5563;
 }
 
-.terms-section ul {
+.section ul {
   padding-left: 20px;
 }
 
-.terms-section ul li {
+.section ul li {
   margin-bottom: 8px;
 }
 
-.modal-content::-webkit-scrollbar {
+.content::-webkit-scrollbar {
   width: 8px;
 }
 
-.modal-content::-webkit-scrollbar-track {
+.content::-webkit-scrollbar-track {
   background: #f3f4f6;
 }
 
-.modal-content::-webkit-scrollbar-thumb {
+.content::-webkit-scrollbar-thumb {
   background: #9ca3af;
   border-radius: 4px;
 }
 
-.modal-content::-webkit-scrollbar-thumb:hover {
+.content::-webkit-scrollbar-thumb:hover {
   background: #6b7280;
 }
 
 @media (max-width: 640px) {
-  .modal-container {
+  .container {
     width: 95%;
     padding: 16px;
   }
 
-  .modal-header h2 {
+  .header h2 {
     font-size: 1.25rem;
   }
 
-  .terms-section h3 {
+  .section h3 {
     font-size: 1rem;
   }
 }

@@ -1,12 +1,12 @@
 
 /* Diseño principal */
-.AppMain_outerBox {
+.outerBox {
   display: flex;
   min-height: 100vh;
 }
 
 /* Contenido principal */
-.AppMain_content {
+.content {
   flex-grow: 1;
   background-color: #ecf0f1;
   padding: 20px;

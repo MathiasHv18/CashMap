@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import useTransaction from "../../hooks/useTransaction";
 import useUserProfile from "../../hooks/useUserProfile";
-import "./Home.css";
+import styles from "./Home.module.css";
 import { TransactionRequest } from "../../interfaces/TransactionRequestInterface";
 import { TransactionResponse } from "../../interfaces/TransactionResponseInterface";
 import { useCategoryTransaction } from "../../hooks/useCategoryTransaction";
@@ -85,36 +85,36 @@ function Home() {
   };
 
   return (
-    <div className="Home_outerBox">
-      <h1 className="Home_tittle">{responseU?.name}'s expense analysis</h1>
-      <div className="Home_inputBox">
-        <h2 className="Home_subtittle">Insert your income </h2>
-        <h5 className="Home_h5">Add your expenses for analysis</h5>
-        <h3 className="Home_h3">Concept</h3>
+    <div className={styles.outerBox}>
+      <h1 className={styles.tittle}>{responseU?.name}'s expense analysis</h1>
+      <div className={styles.inputBox}>
+        <h2 className={styles.subtittle}>Insert your income </h2>
+        <h5 className={styles.h5}>Add your expenses for analysis</h5>
+        <h3 className={styles.h3}>Concept</h3>
         <input
-          className="Home_input"
+          className={styles.input}
           type="text"
           value={concept}
           onChange={(e) => setConcept(e.target.value)}
           required
         />
-        <h3 className="Home_h3">Amount</h3>
+        <h3 className={styles.h3}>Amount</h3>
         <input
-          className="Home_input"
+          className={styles.input}
           type="number"
           value={amount}
           onChange={(e) => setAmount(Number(e.target.value))}
         />
-        <h3 className="Home_h3">Date</h3>
+        <h3 className={styles.h3}>Date</h3>
         <input
-          className="Home_input"
+          className={styles.input}
           type="date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
         />
-        <h3 className="Home_h3">Category</h3>
+        <h3 className={styles.h3}>Category</h3>
         <select
-          className="Home_input"
+          className={styles.input}
           value={categoryDescription}
           onChange={(e) => setCategoryDescription(e.target.value)}
         >
@@ -129,13 +129,13 @@ function Home() {
           ))}
         </select>
         <br />
-        <button className="Home_button" onClick={handleAddTransaction}>
+        <button className={styles.button} onClick={handleAddTransaction}>
           Add
         </button>
       </div>
-      <div className="Home_historyBox">
-        <h2 className="Home_subtittle">History</h2>
-        <table className="Home_table">
+      <div className={styles.historyBox}>
+        <h2 className={styles.subtittle}>History</h2>
+        <table className={styles.table}>
           <thead>
             <tr>
               <th>Concept</th>
@@ -156,8 +156,8 @@ function Home() {
           </tbody>
         </table>
       </div>
-      <div className="Home_statsBox">
-        <h2 className="Home_subtittle">Stats</h2>
+      <div className={styles.statsBox}>
+        <h2 className={styles.subtittle}>Stats</h2>
       </div>
     </div>
   );

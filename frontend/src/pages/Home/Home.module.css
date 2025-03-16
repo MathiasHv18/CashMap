@@ -1,4 +1,4 @@
-.Home_outerBox {
+.outerBox {
   display: flex;
   width: 100%;
   height: 100%;
@@ -7,33 +7,33 @@
   justify-content: center;
 }
 
-.Home_historyBox,
-.Home_statsBox,
-.Home_inputBox {
+.historyBox,
+.statsBox,
+.inputBox {
   background-color: white;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
   padding-left: 15px;
   margin: 5px;
 }
 
-.Home_inputBox {
+.inputBox {
   width: 45%;
   height: 46%;
   display: flex;
   flex-direction: column;
 }
 
-.Home_historyBox {
+.historyBox {
   width: 45%;
   height: 46%;
 }
-.Home_statsBox {
+.statsBox {
   width: 90%;
   height: 45%;
   margin: 5px;
 }
 
-.Home_tittle {
+.tittle {
   font-weight: 600;
   height: 2%;
   width: 100%;
@@ -42,16 +42,16 @@
   margin-bottom: 2%;
 }
 
-.Home_subtittle {
+.subtittle {
   font-weight: 600;
 }
 
-.Home_h3 {
+.h3 {
   font-weight: normal;
   margin-bottom: 1%;
 }
 
-.Home_h5 {
+.h5 {
   font-weight: 600;
   margin-top: 0px;
   padding: 0px;
@@ -59,7 +59,7 @@
   color: rgb(155, 155, 155);
 }
 
-.Home_input {
+.input {
   margin-top: 0px;
   border: 2px solid;
   border-width: 1px;
@@ -73,11 +73,11 @@
   padding: 0 30px;
 }
 
-.Home_subtittle {
+.subtittle {
   margin-bottom: 0px;
 }
 
-.Home_button {
+.button {
   background: #2f2f31;
   color: #fafaed;
   padding: 10px;
@@ -89,32 +89,32 @@
   transition: background 0.3s ease;
 }
 
-.Home_button:hover {
+.button:hover {
   background: #4c4c4f;
 }
 
-.Home_table {
+.table {
   width: 99%;
   border-collapse: collapse;
   margin-top: 10px;
 }
 
-.Home_table th,
-.Home_table td {
+.table th,
+.table td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
 }
 
-.Home_table th {
+.table th {
   background-color: #f4f4f4;
   font-weight: 600;
 }
 
-.Home_table tr:nth-child(even) {
+.table tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-.Home_table tr:hover {
+.table tr:hover {
   background-color: #f1f1f1;
 }
