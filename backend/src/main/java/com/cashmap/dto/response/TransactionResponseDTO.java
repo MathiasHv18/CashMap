@@ -1,5 +1,6 @@
 package com.cashmap.dto.response;
 
+import com.cashmap.entity.CategoryTransaction;
 import lombok.Data;
 
 @Data
@@ -9,7 +10,7 @@ public class TransactionResponseDTO {
     private String concept;
     private String date;
     private String userName;
-    private String categoryDescription;
+    private CategoryTransaction categoryDescription;
     private String typeDescription;
 
     // Getter y Setter para idTransaction
@@ -58,11 +59,11 @@ public class TransactionResponseDTO {
     }
 
     // Getter y Setter para categoryDescription
-    public String getCategoryDescription() {
+    public CategoryTransaction getCategoryDescription() {
         return categoryDescription;
     }
 
-    public void setCategoryDescription(String categoryDescription) {
+    public void setCategoryDescription(CategoryTransaction categoryDescription) {
         this.categoryDescription = categoryDescription;
     }
 

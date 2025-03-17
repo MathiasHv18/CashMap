@@ -2,8 +2,8 @@ package com.cashmap.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -18,7 +18,7 @@ public class User {
     @JoinColumn(name = "idCategoryUser",referencedColumnName = "idCategoryUser" , nullable = false)
     private CategoryUser categoryUser;
 
-    @Column(name = "name", nullable = false, length = 30)
+    @Column(name = "name", nullable = false, length = 100)
     private String name;
 
     @Column(name = "lastname", length = 150)
@@ -33,11 +33,14 @@ public class User {
     @Column(name = "age")
     private Integer age;
 
-    @Column(name = "fisicalMoney")
-    private Double fisicalMoney;
+    @Column(name = "cashBalance")
+    private Double cashBalance;
 
-    @Column(name = "digitalMoney")
-    private Double digitalMoney;
+    @Column(name = "digitalBalance")
+    private Double digitalBalance;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
 
     // Getters
     public Integer getIdUser() {
@@ -68,12 +71,12 @@ public class User {
         return age;
     }
 
-    public Double getFisicalMoney() {
-        return fisicalMoney;
+    public Double getCashBalance() {
+        return cashBalance;
     }
 
-    public Double getDigitalMoney() {
-        return digitalMoney;
+    public Double getDigitalBalance() {
+        return digitalBalance;
     }
 
     // Setters
@@ -105,11 +108,11 @@ public class User {
         this.age = age;
     }
 
-    public void setFisicalMoney(Double fisicalMoney) {
-        this.fisicalMoney = fisicalMoney;
+    public void setCashBalance(Double cashBalance) {
+        this.cashBalance = cashBalance;
     }
 
-    public void setDigitalMoney(Double digitalMoney) {
-        this.digitalMoney = digitalMoney;
+    public void setDigitalBalance(Double digitalBalance) {
+        this.digitalBalance = digitalBalance;
     }
 }

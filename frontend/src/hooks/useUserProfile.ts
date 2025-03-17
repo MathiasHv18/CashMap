@@ -1,29 +1,13 @@
-import { useState } from "react";
-import { User } from "../interfaces/UserProfileInterface";
+import useApi from "./useApi";
 import { getUserProfile } from "../api/userProfileApi";
+import { User } from "../interfaces/UserProfileInterface";
 
 const useUserProfile = () => {
-  const [loadingU, setLoading] = useState(false);
-  const [errorU, setError] = useState<string | null>(null);
-  const [successU, setSuccess] = useState(false);
-  const [responseU, setResponse] = useState<User | null>(null);
+  const { data: user, loading, error, success, fetchData } = useApi<User>();
 
-  const getUser = async () => {
-    setLoading(true);
-    setError(null);
-    setSuccess(false);
-    try {
-      const res = await getUserProfile();
-      setResponse(res);
-      setSuccess(true);
-    } catch (err: any) {
-      setError(err.response?.data?.message || "An error occurred");
-    } finally {
-      setLoading(false);
-    }
-  };
+  const getUser = () => fetchData(getUserProfile);
 
-  return { getUser, loadingU, errorU, successU, responseU };
+  return { getUser, user, loading, error, success };
 };
 
 export default useUserProfile;

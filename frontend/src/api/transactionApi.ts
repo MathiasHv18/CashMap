@@ -1,5 +1,5 @@
 import axiosInstance from "./axiosInstance";
-import { TransactionRequest } from "../interfaces/TransactionRequestInterface";
+import { TransactionRequest } from "../interfaces/TransactionInterface";
 
 export const getAllTransactions = async () => {
   const response = await axiosInstance.get("/transaction");

@@ -1,0 +1,434 @@
+[33mcommit 1ffcf2efd7081f3b0a12f7c72627e467b5aa00e7[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Sat Mar 15 22:44:41 2025 -0500
+
+    CSS modularization
+
+[33mcommit 21be044c63eae118b77f8bfdaf3492ae2a72e5cf[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Sun Mar 2 21:59:38 2025 -0500
+
+    Delete innecsarios archivos
+
+[33mcommit 224cc02eb75899083146fe58224452949c3c8c4f[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Sun Mar 2 16:25:52 2025 -0500
+
+    Create trans frontend complete
+
+[33mcommit 6856ceba429615710db97aa669fd888923abf724[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Sun Mar 2 11:56:52 2025 -0500
+
+    Categorias unicas por usuario
+
+[33mcommit 085b0139ef07ea78f0f10fb9c02aee20761207b4[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Sun Mar 2 11:05:19 2025 -0500
+
+    private router bug fix
+
+[33mcommit 2ea6653dd14cd3f655bc01828d5cd50b0487f38b[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Thu Jan 23 23:59:05 2025 -0500
+
+    Create transaction almost complete
+
+[33mcommit 31378de62f9281f0ed8631ea09a5db54f0eab6bb[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Thu Jan 23 23:31:47 2025 -0500
+
+    get user profile frontend
+
+[33mcommit 4795f6c044f189a9f95f951d166447964c110bad[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Thu Jan 23 21:39:49 2025 -0500
+
+    GetAllTransactions frontend
+
+[33mcommit 4ab077381fbd49534326cd2ac763a55dc38f335e[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Thu Jan 23 20:58:34 2025 -0500
+
+    Get transactions of certain user
+
+[33mcommit aa9e171423bdc970a900ee19e74ff0593656e213[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Thu Jan 23 20:55:15 2025 -0500
+
+    getProfile -> createTransaction 100%
+
+[33mcommit 6c56815178466bebf901bb83bceccd0d604b2243[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Thu Jan 23 20:19:10 2025 -0500
+
+    auth fronentd
+
+[33mcommit 13fcbbd50c1b0f284dabed852de3ee9acf0613ed[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Thu Jan 23 14:16:12 2025 -0500
+
+    fix minor bug
+
+[33mcommit c1dbbf11b17d7d3a82d74a196a04b80bcd836e5c[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Thu Jan 23 14:08:17 2025 -0500
+
+    LoginAPI integracion frontend
+
+[33mcommit 22b411db2f9bcceb8e742b655791b544321c1e88[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Thu Jan 23 13:48:59 2025 -0500
+
+    Integracion de registerAPI en frontend
+
+[33mcommit a55990da49da1dc3e4ddcdf3fe76bde2816e006f[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Thu Jan 23 12:41:17 2025 -0500
+
+    Login 100%
+
+[33mcommit 3d27e31b6e612c9a555e99188345e0883d5fbbec[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Thu Jan 23 11:26:19 2025 -0500
+
+    Registro usuario 100%
+
+[33mcommit 95234bb36537c8f94e492540290f697c0015aa6f[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Tue Jan 21 21:14:30 2025 -0500
+
+    Se puede registrar usuario con error 401
+
+[33mcommit a1ca67317fadd11101c61886f527b465cd25fd26[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Tue Jan 21 16:59:18 2025 -0500
+
+    Casi termiando register con auth
+
+[33mcommit 6122fdf7b6aa721d80a861dfcd26af19098ebc93[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Tue Jan 21 15:49:24 2025 -0500
+
+    Avance en auth
+
+[33mcommit e71f580ab3dde8d075289158ab967bd4959cdc52[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Sun Jan 19 16:50:09 2025 -0500
+
+    Avance auth
+
+[33mcommit 434968291096aca886b0eeb8091875ccb17bf3a0[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Sat Jan 18 10:25:44 2025 -0500
+
+    getSentences integration frontend
+
+[33mcommit 07bce4017987cf3c1da541990f849c75530ed2b6[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Fri Jan 17 23:56:07 2025 -0500
+
+    Fix Cors problem
+
+[33mcommit 9bfb3aaf9391323668530a8acaaa04318b0148be[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Fri Jan 17 23:39:44 2025 -0500
+
+    Get all user transactions
+
+[33mcommit fab616fd06174bed43f5ece477e637c1baafcabe[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Fri Jan 17 13:57:53 2025 -0500
+
+    DTO request transactionj
+
+[33mcommit 8b5581db04e1961b9fdc8f83b96835fcf459ccda[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Fri Jan 17 11:07:34 2025 -0500
+
+    create categoryTransac, create transac
+
+[33mcommit de8c02de773a5db1a8c0264c45cad8c815b9399e[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Wed Jan 15 21:26:31 2025 -0500
+
+    Database into backend
+
+[33mcommit c694b27ddbf02abafab189f7bf4ecdda5d08515c[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Tue Jan 14 11:27:52 2025 -0500
+
+    Avance uso API front
+
+[33mcommit 89370df9784e3fcd751efa2c327cdc942a5911b8[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Sat Jan 11 20:22:04 2025 -0500
+
+    soy un genio
+
+[33mcommit 9140527fdf7743b3586bb0c93a2f94cff6d9c70a[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Mon Jan 6 22:19:42 2025 -0500
+
+    avance endpoint final
+
+[33mcommit dceab8fbce8ed0d49583419f62d234332d5519c5[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Mon Jan 6 21:57:16 2025 -0500
+
+    Avance repositorio, service, service impl y correcion bug bd
+
+[33mcommit d3b4609c9e5df7b3210900fb5f204b43e1f50300[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Sun Jan 5 22:54:39 2025 -0500
+
+    Avance con error en base de datos
+
+[33mcommit 75464e0019059846b03d979958a9da59a70755dd[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Sun Jan 5 19:03:50 2025 -0500
+
+    cambio de letra en input boxes
+
+[33mcommit 206cec438014eccac518c89b8b7a706b67569b69[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Sun Jan 5 19:01:03 2025 -0500
+
+    avance historyBox
+
+[33mcommit e9fe70d863aaf4e8abccf0f316846c08186921f2[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Sun Jan 5 18:56:21 2025 -0500
+
+    Avance inputBox
+
+[33mcommit dc7c419fe21a042089dfcdbb307b01c2e411af3f[m
+Author: Drewks <u202211499@upc.edu.pe>
+Date:   Sat Jan 4 23:36:04 2025 -0500
+
+    Terms&Privacy(TERMINADO)
+
+[33mcommit 4ac369253676ffc3a3b181f43c9df8b1a7a4ffe5[m
+Author: Drewks <u202211499@upc.edu.pe>
+Date:   Sat Jan 4 18:05:44 2025 -0500
+
+    terms&privacy
+
+[33mcommit c104c7646fd3777fe9e7e12f14897d4b9801a695[m
+Author: Drewks <u202211499@upc.edu.pe>
+Date:   Sat Jan 4 17:53:41 2025 -0500
+
+    ???
+
+[33mcommit 0d5af79605c7bfa19fe321a980d0400c7863709f[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Sat Jan 4 01:19:03 2025 -0500
+
+    Home pre pre pre pre
+
+[33mcommit d8b4f0fec2539ac36e8965e5a06badce73af06e2[m
+Author: Drewks <u202211499@upc.edu.pe>
+Date:   Sat Jan 4 01:17:42 2025 -0500
+
+    pushing
+
+[33mcommit 31a532f591e54742e389779bac062b08d5c5f14e[m
+Author: Drewks <u202211499@upc.edu.pe>
+Date:   Sat Jan 4 00:31:35 2025 -0500
+
+    logo (pre-release)
+
+[33mcommit 6097f0f8e36aec65d3e861c0f92f321136241ee8[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Sat Jan 4 00:27:14 2025 -0500
+
+    Organizacion de navbar archivos
+
+[33mcommit 456a49fbc9168e6221fdd008ef71ebeb36f2b7ca[m
+Author: Drewks <u202211499@upc.edu.pe>
+Date:   Fri Jan 3 22:42:16 2025 -0500
+
+    update 2 (barra)
+
+[33mcommit 9fdb9956b379a1a71b37557cdb487b76f0d229b9[m
+Author: Drewks <u202211499@upc.edu.pe>
+Date:   Fri Jan 3 17:02:12 2025 -0500
+
+    barra update
+
+[33mcommit d2212a72f05c898733f5e17f2bb35c30784e5132[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Fri Jan 3 00:19:36 2025 -0500
+
+    backend
+
+[33mcommit 792e3a1c523f04bff72af6f50297bb1e473925bc[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Thu Jan 2 23:50:55 2025 -0500
+
+    asd
+
+[33mcommit 4ce7f4d8b0874432219d1255f96fd0c60d41d02a[m
+Author: Drewks <u202211499@upc.edu.pe>
+Date:   Thu Jan 2 22:48:30 2025 -0500
+
+    cague
+
+[33mcommit e1343bc84c33192cf735865aa5b873a38bc56d5c[m
+Author: Drewks <u202211499@upc.edu.pe>
+Date:   Thu Dec 26 23:38:20 2024 -0500
+
+    appMain (Boceto)
+
+[33mcommit 66bfbe0836fa85c49fc446c1fa058925f74b2a5e[m
+Author: Drewks <u202211499@upc.edu.pe>
+Date:   Thu Dec 26 21:51:58 2024 -0500
+
+    Register Page terminao
+
+[33mcommit 7d58c5590df2df1068f556ae9257f550732c49c6[m
+Author: Drewks <u202211499@upc.edu.pe>
+Date:   Sun Dec 22 00:23:20 2024 -0500
+
+    chamba de 2 dias
+    
+    login y register terminado. Se volvio a agregar css a LoginCard, pero con classNames
+
+[33mcommit c9fa92144aec2368c0fc02a82b6572c96ee18c2d[m
+Author: Drewks <u202211499@upc.edu.pe>
+Date:   Sat Dec 21 16:07:47 2024 -0500
+
+    register css (v0)
+
+[33mcommit 08611caafecfedd9f0253c6a2e425bcb2f2f58c1[m
+Author: Drewks <u202211499@upc.edu.pe>
+Date:   Sat Dec 21 16:01:55 2024 -0500
+
+    a
+
+[33mcommit 902d3085c9e5f067b1147e5babd90c32703f3b5a[m
+Author: Drewks <u202211499@upc.edu.pe>
+Date:   Sat Dec 21 15:49:30 2024 -0500
+
+    LoginCard CSS
+
+[33mcommit a111cd7e6a37b02a71009bdfb019ec85f59549f0[m
+Author: Drewks <u202211499@upc.edu.pe>
+Date:   Sat Dec 21 12:55:03 2024 -0500
+
+    de 0 chavales
+
+[33mcommit 62544aab3a7ccb974914d116a0711375c89b6059[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Sat Dec 21 01:00:37 2024 -0500
+
+    avance main page
+
+[33mcommit 85c44a6f1770ab0fae259424137ca43acb678eb6[m
+Author: Drewks <u202211499@upc.edu.pe>
+Date:   Sat Dec 21 00:43:13 2024 -0500
+
+    subii
+
+[33mcommit 008aef4f9d7dadfd058879e87345fd9ff3fa804c[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Sat Dec 21 00:41:09 2024 -0500
+
+    Quick fix
+
+[33mcommit cada177b24074e2e2fa50224d0bdbd982b913b34[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Sat Dec 21 00:20:26 2024 -0500
+
+    Register page template
+
+[33mcommit 582173c774bc865dcf495136b073927a293fb514[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Fri Dec 20 23:58:04 2024 -0500
+
+    handleClick
+
+[33mcommit f7fd4e148425c27859bebdfc3eb1b40b43ac04d5[m
+Author: Drewks <u202211499@upc.edu.pe>
+Date:   Fri Dec 20 23:49:42 2024 -0500
+
+    s
+
+[33mcommit 31a40ea3860180496c2644c7610ce4606f5e1bff[m
+Author: Drewks <u202211499@upc.edu.pe>
+Date:   Fri Dec 20 23:23:43 2024 -0500
+
+    sizes
+
+[33mcommit a47ddf95bb04b78ef34024b1b809735e6f3279e2[m
+Author: Drewks <u202211499@upc.edu.pe>
+Date:   Fri Dec 20 01:31:36 2024 -0500
+
+    quedaa
+
+[33mcommit 1f49f1e37eed394aed5529aeda12a5f860accf2a[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Fri Dec 20 01:24:36 2024 -0500
+
+    Center Div login Card
+
+[33mcommit ed6e5e390cc437943e7acda81fc3a3d051b0a743[m
+Author: Drewks <u202211499@upc.edu.pe>
+Date:   Fri Dec 20 01:13:17 2024 -0500
+
+    fabio finish first
+
+[33mcommit b13788371db26e5171708190ba520be29a27cbdc[m
+Author: Drewks <u202211499@upc.edu.pe>
+Date:   Fri Dec 20 00:51:11 2024 -0500
+
+    finish colors
+
+[33mcommit f01b49c9d59dc7d256d26d4ed1920d119e624ba3[m
+Merge: 6de9cab be61fa8
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Fri Dec 20 00:47:03 2024 -0500
+
+    curva
+
+[33mcommit 6de9cab4a228a5162d5e5510d730d46ba86a5ca1[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Fri Dec 20 00:45:58 2024 -0500
+
+    curva
+
+[33mcommit be61fa88804c103e7fae2617215bb13cf41f8574[m
+Author: Drewks <u202211499@upc.edu.pe>
+Date:   Fri Dec 20 00:42:57 2024 -0500
+
+    a(change)
+
+[33mcommit 0176355ac6557bc8b63b409bf51dd3a5b0cf6244[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Fri Dec 20 00:35:15 2024 -0500
+
+    Avance login card
+
+[33mcommit 9659350808ca00d31b96386d1dd9b56edc02977a[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Thu Dec 19 23:51:49 2024 -0500
+
+    avance
+
+[33mcommit cc73c44e004035c0647a99189bdbc95ed4b50472[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Thu Dec 19 21:43:00 2024 -0500
+
+    Login template
+
+[33mcommit d5cb9ca59a9b1d79b4d3363993e3ed1048954d6d[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Wed Dec 18 12:16:58 2024 -0500
+
+    Create react app
+
+[33mcommit 38058d836f6f73a1396fd9b193730ade01443114[m
+Author: Mathias <mathiashv2014@gmail.com>
+Date:   Tue Dec 17 22:58:57 2024 -0500
+
+    Initial commit

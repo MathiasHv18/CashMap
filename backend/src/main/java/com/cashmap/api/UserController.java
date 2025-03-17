@@ -30,8 +30,8 @@ public class UserController {
         userProfileResponseDTO.setCategoryUser(user.getCategoryUser().getCategoryUser().name());
         userProfileResponseDTO.setLastname(user.getLastname());
         userProfileResponseDTO.setAge(user.getAge());
-        userProfileResponseDTO.setDigitalMoney(user.getDigitalMoney());
-        userProfileResponseDTO.setFisicalMoney(user.getFisicalMoney());
+        userProfileResponseDTO.setDigitalMoney(user.getCashBalance());
+        userProfileResponseDTO.setFisicalMoney(user.getDigitalBalance());
         userProfileResponseDTO.setName(user.getName());
 
         return new ResponseEntity<UserProfileResponseDTO>(userProfileResponseDTO, HttpStatus.OK);

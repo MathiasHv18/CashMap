@@ -1,63 +1,37 @@
-import { useState } from "react";
-import { TransactionResponse } from "../interfaces/TransactionResponseInterface";
-import { TransactionRequest } from "../interfaces/TransactionRequestInterface";
+import useApi from "./useApi";
+import { getAllTransactions, createTransaction } from "../api/transactionApi";
 import {
-  getAllTransactions,
-  createTransaction as apiCreateTransaction,
-} from "../api/transactionApi";
+  TransactionResponse,
+  TransactionRequest,
+} from "../interfaces/TransactionInterface";
 
 const useTransaction = () => {
-  const [loadingT, setLoading] = useState(false);
-  const [errorT, setError] = useState<string | null>(null);
-  const [successT, setSuccess] = useState(false);
-  const [responseT, setResponse] = useState<TransactionResponse[] | null>(null);
-
-  const [loadingTR, setLoadingTR] = useState(false);
-  const [errorTR, setErrorTR] = useState<string | null>(null);
-  const [successTR, setSuccessTR] = useState(false);
-  const [responseTR, setResponseTR] = useState<TransactionResponse | null>(null);
-
-  const fetchTransactions = async () => {
-    setLoading(true);
-    setError(null);
-    setSuccess(false);
-    try {
-      const res = await getAllTransactions();
-      setResponse(res);
-      setSuccess(true);
-    } catch (err: any) {
-      setError(err.response?.data?.message || "An error occurred");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const addTransaction = async (transaction: TransactionRequest) => {
-    setLoadingTR(true);
-    setErrorTR(null);
-    setSuccessTR(false);
-    try {
-      const res = await apiCreateTransaction(transaction);
-      setResponseTR(res);
-      setSuccessTR(true);
-    } catch (err: any) {
-      setErrorTR(err.response?.data?.message || "An error occurred");
-    } finally {
-      setLoadingTR(false);
-    }
-  };
+  const {
+    data: transactions,
+    loading,
+    error,
+    success,
+    fetchData,
+  } = useApi<TransactionResponse[]>();
+  const {
+    data: addedTransaction,
+    loading: adding,
+    error: addError,
+    success: addSuccess,
+    fetchData: addTransaction,
+  } = useApi<TransactionRequest>();
 
   return {
-    fetchTransactions,
-    loadingT,
-    errorT,
-    successT,
-    responseT,
-    addTransaction,
-    loadingTR,
-    errorTR,
-    successTR,
-    responseTR,
+    transactions,
+    loading,
+    error,
+    success,
+    fetchTransactions: () => fetchData(getAllTransactions),
+    addTransaction: (data: TransactionRequest) =>
+      addTransaction(() => createTransaction(data)),
+    adding,
+    addError,
+    addSuccess,
   };
 };
 

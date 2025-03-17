@@ -1,34 +1,36 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import useTransaction from "../../hooks/useTransaction";
 import useUserProfile from "../../hooks/useUserProfile";
 import styles from "./Home.module.css";
-import { TransactionRequest } from "../../interfaces/TransactionRequestInterface";
-import { TransactionResponse } from "../../interfaces/TransactionResponseInterface";
+import { TransactionRequest } from "../../interfaces/TransactionInterface";
 import { useCategoryTransaction } from "../../hooks/useCategoryTransaction";
-import { CategoryTransactionRequest } from "../../interfaces/CategoryTransactionRequestInterface";
-import { CategoryTransactionResponse } from "../../interfaces/CategoryTransactionResponseInterface";
+import { CategoryTransactionResponse } from "../../interfaces/CategoryTransactionInterface";
 
 function Home() {
   const {
     fetchTransactions,
-    loadingT,
-    errorT,
-    successT,
-    responseT,
+    transactions,
+    loading,
+    error,
+    success,
     addTransaction,
-    loadingTR,
-    errorTR,
-    successTR,
-    responseTR,
+    adding,
+    addError,
+    addSuccess,
   } = useTransaction();
-  const { getUser, loadingU, errorU, successU, responseU } = useUserProfile();
-  const [transactions, setTransactions] = useState<TransactionResponse[]>([]);
+  const {
+    getUser,
+    user,
+    loading: loadingU,
+    error: errorU,
+    success: successU,
+  } = useUserProfile();
+  const { fetchCategories, responseGC, successGC } = useCategoryTransaction();
+
   const [concept, setConcept] = useState("");
   const [amount, setAmount] = useState<number | undefined>(0);
   const [date, setDate] = useState("");
   const [categoryDescription, setCategoryDescription] = useState("");
-  const { fetchCategories, loadingGC, errorGC, successGC, responseGC } =
-    useCategoryTransaction();
 
   useEffect(() => {
     getUser();
@@ -36,32 +38,16 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    fetchCategories(responseU?.id || 0);
-  }, [responseU]);
+    if (user) {
+      fetchCategories(user.id);
+    }
+  }, [user]);
 
   useEffect(() => {
-    if (successGC && responseGC) {
-      console.log(responseGC);
+    if (addSuccess) {
+      fetchTransactions();
     }
-  }, [successGC, responseGC]);
-
-  useEffect(() => {
-    if (successT && responseT) {
-      setTransactions(responseT);
-    }
-  }, [successT, responseT]);
-
-  useEffect(() => {
-    if (successU && responseU) {
-      console.log(responseU);
-    }
-  }, [successU, responseU]);
-
-  useEffect(() => {
-    if (successTR && responseTR) {
-      console.log(responseTR, "11902191354");
-    }
-  }, [successTR, responseTR]);
+  }, [addSuccess]);
 
   const handleAddTransaction = async () => {
     if (!concept || !amount || !date || !categoryDescription) {
@@ -73,23 +59,19 @@ function Home() {
       amount,
       concept,
       date,
-      userId: responseU?.id || 0,
+      userId: user?.id || 0,
       categoryTransaction: categoryDescription,
       idTypeTran: 1,
     };
 
-    console.log("Data Transaction:", dataTransaction);
-
     await addTransaction(dataTransaction);
-    fetchTransactions();
   };
 
   return (
     <div className={styles.outerBox}>
-      <h1 className={styles.tittle}>{responseU?.name}'s expense analysis</h1>
+      <h1 className={styles.tittle}>{user?.name}'s Expense Analysis</h1>
       <div className={styles.inputBox}>
-        <h2 className={styles.subtittle}>Insert your income </h2>
-        <h5 className={styles.h5}>Add your expenses for analysis</h5>
+        <h2 className={styles.subtittle}>Insert your income</h2>
         <h3 className={styles.h3}>Concept</h3>
         <input
           className={styles.input}
@@ -129,10 +111,15 @@ function Home() {
           ))}
         </select>
         <br />
-        <button className={styles.button} onClick={handleAddTransaction}>
-          Add
+        <button
+          className={styles.button}
+          onClick={handleAddTransaction}
+          disabled={adding}
+        >
+          {adding ? "Adding..." : "Add"}
         </button>
       </div>
+
       <div className={styles.historyBox}>
         <h2 className={styles.subtittle}>History</h2>
         <table className={styles.table}>
@@ -145,7 +132,7 @@ function Home() {
             </tr>
           </thead>
           <tbody>
-            {transactions.map((transaction) => (
+            {transactions?.map((transaction) => (
               <tr key={transaction.idTransaction}>
                 <td>{transaction.concept}</td>
                 <td>${transaction.amount}</td>
@@ -155,9 +142,6 @@ function Home() {
             ))}
           </tbody>
         </table>
-      </div>
-      <div className={styles.statsBox}>
-        <h2 className={styles.subtittle}>Stats</h2>
       </div>
     </div>
   );
