@@ -1,53 +1,27 @@
-import { useState, useEffect } from "react";
-import useTransaction from "../../hooks/useTransaction";
-import useUserProfile from "../../hooks/useUserProfile";
+import { useState } from "react";
 import styles from "./Home.module.css";
+//Api hooks
+import useTransactions from "../../hooks/useTransaction";
+import useUserProfile from "../../hooks/useUserProfile";
+import useCategoryTransaction from "../../hooks/useCategoryTransaction";
+//Interfaces
 import { TransactionRequest } from "../../interfaces/TransactionInterface";
-import { useCategoryTransaction } from "../../hooks/useCategoryTransaction";
 import { CategoryTransactionResponse } from "../../interfaces/CategoryTransactionInterface";
 
 function Home() {
   const {
-    fetchTransactions,
-    transactions,
-    loading,
-    error,
-    success,
-    addTransaction,
-    adding,
-    addError,
-    addSuccess,
-  } = useTransaction();
-  const {
-    getUser,
-    user,
-    loading: loadingU,
-    error: errorU,
-    success: successU,
-  } = useUserProfile();
-  const { fetchCategories, responseGC, successGC } = useCategoryTransaction();
+    transactions, // Lista de transacciones precargadas por useEffect en hook
+    state: transactionsState, // Estados (loading, error) de las transacciones
+    addTransaction, //Llamar para agregar una transaccion
+  } = useTransactions();
+
+  const { user } = useUserProfile();
+  const { categoriesTransaction } = useCategoryTransaction();
 
   const [concept, setConcept] = useState("");
   const [amount, setAmount] = useState<number | undefined>(0);
   const [date, setDate] = useState("");
   const [categoryDescription, setCategoryDescription] = useState("");
-
-  useEffect(() => {
-    getUser();
-    fetchTransactions();
-  }, []);
-
-  useEffect(() => {
-    if (user) {
-      fetchCategories(user.id);
-    }
-  }, [user]);
-
-  useEffect(() => {
-    if (addSuccess) {
-      fetchTransactions();
-    }
-  }, [addSuccess]);
 
   const handleAddTransaction = async () => {
     if (!concept || !amount || !date || !categoryDescription) {
@@ -101,22 +75,24 @@ function Home() {
           onChange={(e) => setCategoryDescription(e.target.value)}
         >
           <option value="">Select a category</option>
-          {responseGC?.map((category: CategoryTransactionResponse) => (
-            <option
-              key={category.idCategoryTransaction}
-              value={category.categoryTransaction}
-            >
-              {category.categoryTransaction}
-            </option>
-          ))}
+          {categoriesTransaction?.map(
+            (category: CategoryTransactionResponse) => (
+              <option
+                key={category.idCategoryTransaction}
+                value={category.categoryTransaction}
+              >
+                {category.categoryTransaction}
+              </option>
+            )
+          )}
         </select>
         <br />
         <button
           className={styles.button}
           onClick={handleAddTransaction}
-          disabled={adding}
+          disabled={transactionsState.loading}
         >
-          {adding ? "Adding..." : "Add"}
+          {transactionsState.loading ? "Adding..." : "Add"}
         </button>
       </div>
 

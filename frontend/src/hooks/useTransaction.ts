@@ -1,38 +1,49 @@
-import useApi from "./useApi";
+import { useEffect, useState } from "react";
 import { getAllTransactions, createTransaction } from "../api/transactionApi";
 import {
   TransactionResponse,
   TransactionRequest,
 } from "../interfaces/TransactionInterface";
 
-const useTransaction = () => {
-  const {
-    data: transactions,
-    loading,
-    error,
-    success,
-    fetchData,
-  } = useApi<TransactionResponse[]>();
-  const {
-    data: addedTransaction,
-    loading: adding,
-    error: addError,
-    success: addSuccess,
-    fetchData: addTransaction,
-  } = useApi<TransactionRequest>();
+const useTransactions = () => {
+  const [transactions, setTransactions] = useState<TransactionResponse[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetchTransactions();
+  }, []);
+
+  const fetchTransactions = async () => {
+    setLoading(true);
+    try {
+      const data = await getAllTransactions();
+      setTransactions(data);
+    } catch (err: any) {
+      setError(err.response?.data?.message || "Error fetching transactions");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const addTransaction = async (newTransaction: TransactionRequest) => {
+    try {
+      const addedTransaction = await createTransaction(newTransaction);
+      setTransactions((prev) => [...prev, addedTransaction]);
+    } catch (err: any) {
+      console.error(
+        "Error adding transaction:",
+        err.response?.data?.message || err
+      );
+    }
+  };
 
   return {
     transactions,
-    loading,
-    error,
-    success,
-    fetchTransactions: () => fetchData(getAllTransactions),
-    addTransaction: (data: TransactionRequest) =>
-      addTransaction(() => createTransaction(data)),
-    adding,
-    addError,
-    addSuccess,
+    state: { loading, error },
+    fetchTransactions,
+    addTransaction,
   };
 };
 
-export default useTransaction;
+export default useTransactions;

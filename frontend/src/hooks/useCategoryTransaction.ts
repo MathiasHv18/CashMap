@@ -1,72 +1,56 @@
-import { useState } from "react";
-import { CategoryTransactionRequest } from "../interfaces/CategoryTransactionRequestInterface";
-import { CategoryTransactionResponse } from "../interfaces/CategoryTransactionResponseInterface";
-
+import { useState, useEffect } from "react";
 import {
-  createCategoryTransaction,
+  CategoryTransactionRequest,
+  CategoryTransactionResponse,
+} from "../interfaces/CategoryTransactionInterface";
+import {
   getCategoriesByUser,
+  createCategoryTransaction,
 } from "../api/categoryTransactionApi";
 
-export const useCategoryTransaction = () => {
-  const [loadingGC, setLoading] = useState(false);
-  const [errorGC, setError] = useState<string | null>(null);
-  const [successGC, setSuccess] = useState(false);
-  const [responseGC, setResponse] = useState<
-    CategoryTransactionResponse[] | null
-  >(null);
+const useCategoryTransaction = () => {
+  const [categoriesTransaction, setCategoriesTransaction] = useState<
+    CategoryTransactionResponse[]
+  >([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const [loadingSC, setLoadingTR] = useState(false);
-  const [errorSC, setErrorTR] = useState<string | null>(null);
-  const [successSC, setSuccessTR] = useState(false);
-  const [responseSC, setResponseTR] =
-    useState<CategoryTransactionResponse | null>(null);
+  useEffect(() => {
+    fetchCategoriesTransaction();
+  }, []);
 
-  const fetchCategories = async (userId: number) => {
+  const fetchCategoriesTransaction = async () => {
     setLoading(true);
-    setError(null);
-    setSuccess(false);
     try {
-      const res = await getCategoriesByUser(userId);
-      setResponse(res);
-      setSuccess(true);
+      const data = await getCategoriesByUser();
+      setCategoriesTransaction(data);
     } catch (err: any) {
-      setError(err.response?.data?.message || "An error occurred");
+      setError(err.response?.data?.message || "Error fetching user categories");
     } finally {
       setLoading(false);
     }
   };
 
-  const addCategory = async (
-    userId: number,
-    category: CategoryTransactionRequest
+  const addCategoryTransaction = async (
+    categoryTransaction: CategoryTransactionRequest
   ) => {
-    setLoadingTR(true);
-    setErrorTR(null);
-    setSuccessTR(false);
+    setLoading(true);
     try {
-      const res = await createCategoryTransaction(userId, category);
-      setResponseTR(res);
-      setSuccessTR(true);
+      const data = await createCategoryTransaction(categoryTransaction);
+      setCategoriesTransaction((prev) => [...prev, data]);
     } catch (err: any) {
-      setErrorTR(err.response?.data?.message || "An error occurred");
+      setError(err.response?.data?.message || "Error fetching user categories");
     } finally {
-      setLoadingTR(false);
+      setLoading(false);
     }
   };
 
-    return {
-        fetchCategories,
-        loadingGC,
-        errorGC,
-        successGC,
-        responseGC,
-        addCategory,
-        loadingSC,
-        errorSC,
-        successSC,
-        responseSC,
-    };
+  return {
+    categoriesTransaction,
+    state: { loading, error },
+    fetchCategoriesTransaction,
+    addCategoryTransaction,
+  };
 };
-
 
 export default useCategoryTransaction;

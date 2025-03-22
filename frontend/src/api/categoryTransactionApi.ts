@@ -1,17 +1,16 @@
 import axiosInstance from "./axiosInstance";
-import { CategoryTransactionRequest } from "../interfaces/CategoryTransactionRequestInterface";
+import { CategoryTransactionRequest } from "../interfaces/CategoryTransactionInterface";
 
-export const getCategoriesByUser = async (userId: number) => {
-  const response = await axiosInstance.get(`/categoryTransaction/${userId}`);
+export const getCategoriesByUser = async () => {
+  const response = await axiosInstance.get(`/categoryTransaction`);
   return response.data;
 };
 
 export const createCategoryTransaction = async (
-  userId: number,
   categoryTransactionRequest: CategoryTransactionRequest
 ) => {
   const response = await axiosInstance.post(
-    `/categoryTransaction/${userId}`,
+    `/categoryTransaction`,
     categoryTransactionRequest
   );
   return response.data;
