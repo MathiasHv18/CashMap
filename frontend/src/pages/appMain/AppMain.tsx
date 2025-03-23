@@ -13,7 +13,9 @@ function AppMain() {
 
   return (
     <div className={styles.outerBox}>
-      <Sidebar isCollapsed={isSidebarCollapsed} onToggle={toggleSidebar} />
+      {
+        //<Sidebar isCollapsed={isSidebarCollapsed} onToggle={toggleSidebar} />
+      }
       <main className={styles.content}>
         <Home />
       </main>
