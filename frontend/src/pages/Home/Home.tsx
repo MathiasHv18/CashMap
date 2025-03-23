@@ -1,5 +1,7 @@
 import { useState } from "react";
 import styles from "./Home.module.css";
+//Components
+import { CardBalanceInfo } from "@/components/layouts/CardBalanceInfo/CardBalanceInfo";
 //Api hooks
 import useTransactions from "../../hooks/useTransaction";
 import useUserProfile from "../../hooks/useUserProfile";
@@ -42,82 +44,39 @@ function Home() {
   };
 
   return (
-    <div className={styles.outerBox}>
-      <h1 className={styles.tittle}>{user?.name}'s Expense Analysis</h1>
-      <div className={styles.inputBox}>
-        <h2 className={styles.subtittle}>Insert your income</h2>
-        <h3 className={styles.h3}>Concept</h3>
-        <input
-          className={styles.input}
-          type="text"
-          value={concept}
-          onChange={(e) => setConcept(e.target.value)}
-          required
-        />
-        <h3 className={styles.h3}>Amount</h3>
-        <input
-          className={styles.input}
-          type="number"
-          value={amount}
-          onChange={(e) => setAmount(Number(e.target.value))}
-        />
-        <h3 className={styles.h3}>Date</h3>
-        <input
-          className={styles.input}
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-        />
-        <h3 className={styles.h3}>Category</h3>
-        <select
-          className={styles.input}
-          value={idCategoryTransaction}
-          onChange={(e) => setIdCategoryTransaction(parseInt(e.target.value))}
-        >
-          <option value="">Select a category</option>
-          {categoriesTransaction?.map(
-            (category: CategoryTransactionResponse) => (
-              <option
-                key={category.idCategoryTransaction}
-                value={category.idCategoryTransaction}
-              >
-                {category.categoryTransaction}
-              </option>
-            )
-          )}
-        </select>
-        <br />
-        <button
-          className={styles.button}
-          onClick={handleAddTransaction}
-          disabled={transactionsState.loading}
-        >
-          {transactionsState.loading ? "Adding..." : "Add"}
-        </button>
-      </div>
-
-      <div className={styles.historyBox}>
-        <h2 className={styles.subtittle}>History</h2>
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              <th>Concept</th>
-              <th>Amount</th>
-              <th>Date</th>
-              <th>Category</th>
-            </tr>
-          </thead>
-          <tbody>
-            {transactions?.map((transaction) => (
-              <tr key={transaction.idTransaction}>
-                <td>{transaction.concept}</td>
-                <td>${transaction.amount}</td>
-                <td>{transaction.date}</td>
-                <td>{transaction.categoryDescription.categoryTransaction}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+    <div className="w-full">
+      <nav>
+        <h1 className="text-3xl font-bold tracking-wide">
+          {user?.name}'s Expense Analysis
+        </h1>
+      </nav>
+      <div className="flex">
+        <div className="flex justify-between gap-4 w-full">
+          <CardBalanceInfo
+            title="Total balance"
+            balance={12000}
+            footer="desde el mes pasado"
+            colorText="text-red-500"
+          />
+          <CardBalanceInfo
+            title="Income"
+            balance={12000}
+            footer="desde el mes pasado"
+            colorText="text-green-500"
+          />
+          <CardBalanceInfo
+            title="Expenses"
+            balance={12000}
+            footer="desde el mes pasado"
+            colorText="text-red-500"
+          />
+          <CardBalanceInfo
+            title="Savings"
+            balance={12000}
+            footer="desde el mes pasado"
+            colorText="text-blue-500"
+          />
+        </div>
       </div>
     </div>
   );
