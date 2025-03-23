@@ -8,7 +8,7 @@ import com.cashmap.entity.UserTransaction;
 import java.util.List;
 
 public interface TransactionService {
-    UserTransaction createTransaction(TransactionRequestDTO requestDTO);
+    TransactionResponseDTO createTransaction(TransactionRequestDTO requestDTO);
     Transaction getTransactionById(Integer id);
     void deleteTransaction(Integer id);
     List<TransactionResponseDTO> getUserTransactions(Integer userId);

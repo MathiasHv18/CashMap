@@ -3,7 +3,7 @@ export interface TransactionRequest {
   concept: string;
   date: string;
   userId: number;
-  categoryTransaction: string;
+  idCategoryTransaction: number;
   idTypeTran: number;
 }
 
@@ -13,6 +13,9 @@ export interface TransactionResponse {
   concept: string;
   date: string;
   userName: string;
-  categoryDescription: string;
+  categoryDescription: {
+    idCategoryTransaction: number;
+    categoryTransaction: string;
+  };
   typeDescription: string;
 }

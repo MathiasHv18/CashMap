@@ -1,9 +1,6 @@
 package com.cashmap.dto.request;
 
-import com.cashmap.entity.CategoryTransaction;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 @Data
 public class TransactionRequestDTO {
@@ -11,7 +8,7 @@ public class TransactionRequestDTO {
     private String concept;
     private String date;
     private Integer userId;
-    private CategoryTransaction categoryTransaction;
+    private Integer idCategoryTransaction;
     private Integer idTypeTran;
 
     // Getters
@@ -31,8 +28,8 @@ public class TransactionRequestDTO {
         return userId;
     }
 
-    public CategoryTransaction getCategoryTransaction() {
-        return categoryTransaction;
+    public Integer getIdCategoryTransaction() {
+        return idCategoryTransaction;
     }
 
     public Integer getIdTypeTran() {
@@ -56,8 +53,8 @@ public class TransactionRequestDTO {
         this.userId = userId;
     }
 
-    public void setCategoryTran(CategoryTransaction categoryTran) {
-        this.categoryTransaction = categoryTran;
+    public void setIdCategoryTransaction(Integer idCategoryTransaction) {
+        this.idCategoryTransaction = idCategoryTransaction;
     }
 
     public void setIdTypeTran(Integer idTypeTran) {

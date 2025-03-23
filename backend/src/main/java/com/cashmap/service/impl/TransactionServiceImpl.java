@@ -32,13 +32,16 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Transactional
     @Override
-    public UserTransaction createTransaction(TransactionRequestDTO requestDTO) {
+    public TransactionResponseDTO createTransaction(TransactionRequestDTO requestDTO) {
         // Crear la transacción
         Transaction transaction = new Transaction();
         transaction.setAmount(requestDTO.getAmount());
         transaction.setConcept(requestDTO.getConcept());
         transaction.setDate(LocalDate.parse(requestDTO.getDate()));
-        transaction.setCategoryTransaction(requestDTO.getCategoryTransaction());
+
+        CategoryTransaction category = categoryTransactionRepository.findById(requestDTO.getIdCategoryTransaction())
+                .orElseThrow(() -> new RuntimeException("Categoría no encontrada"));
+        transaction.setCategoryTransaction(category);
 
 
         // Validar y asignar tipo de transacción
@@ -65,7 +68,17 @@ public class TransactionServiceImpl implements TransactionService {
         userTransaction.setTransaction(savedTransaction);
 
         // Guardar la relación UserTransaction
-        return userTransactionRepository.save(userTransaction);
+        // Crear y poblar el TransactionResponseDTO
+        TransactionResponseDTO responseDTO = new TransactionResponseDTO();
+        responseDTO.setIdTransaction(savedTransaction.getIdTransaction());
+        responseDTO.setAmount(savedTransaction.getAmount());
+        responseDTO.setConcept(savedTransaction.getConcept());
+        responseDTO.setDate(savedTransaction.getDate().toString());
+        responseDTO.setUserName(user.getName());
+        responseDTO.setCategoryDescription(savedTransaction.getCategoryTransaction());
+        responseDTO.setTypeDescription(savedTransaction.getTypeTransaction().getTypeTransaction());
+
+        return responseDTO;
     }
 
     @Transactional(readOnly = true)

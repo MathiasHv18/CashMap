@@ -21,10 +21,10 @@ function Home() {
   const [concept, setConcept] = useState("");
   const [amount, setAmount] = useState<number | undefined>(0);
   const [date, setDate] = useState("");
-  const [categoryDescription, setCategoryDescription] = useState("");
+  const [idCategoryTransaction, setIdCategoryTransaction] = useState(0);
 
   const handleAddTransaction = async () => {
-    if (!concept || !amount || !date || !categoryDescription) {
+    if (!concept || !amount || !date || !idCategoryTransaction) {
       alert("All fields are required.");
       return;
     }
@@ -34,7 +34,7 @@ function Home() {
       concept,
       date,
       userId: user?.id || 0,
-      categoryTransaction: categoryDescription,
+      idCategoryTransaction,
       idTypeTran: 1,
     };
 
@@ -71,15 +71,15 @@ function Home() {
         <h3 className={styles.h3}>Category</h3>
         <select
           className={styles.input}
-          value={categoryDescription}
-          onChange={(e) => setCategoryDescription(e.target.value)}
+          value={idCategoryTransaction}
+          onChange={(e) => setIdCategoryTransaction(parseInt(e.target.value))}
         >
           <option value="">Select a category</option>
           {categoriesTransaction?.map(
             (category: CategoryTransactionResponse) => (
               <option
                 key={category.idCategoryTransaction}
-                value={category.categoryTransaction}
+                value={category.idCategoryTransaction}
               >
                 {category.categoryTransaction}
               </option>
@@ -113,7 +113,7 @@ function Home() {
                 <td>{transaction.concept}</td>
                 <td>${transaction.amount}</td>
                 <td>{transaction.date}</td>
-                <td>{transaction.categoryDescription}</td>
+                <td>{transaction.categoryDescription.categoryTransaction}</td>
               </tr>
             ))}
           </tbody>

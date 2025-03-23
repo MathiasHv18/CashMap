@@ -27,16 +27,10 @@ public class TransactionController {
 
 
     @PostMapping
-    public ResponseEntity<UserTransaction> createTransaction(@RequestBody TransactionRequestDTO requestDTO, @RequestHeader("Authorization") String bearerToken){
+    public ResponseEntity<TransactionResponseDTO> createTransaction(@RequestBody TransactionRequestDTO requestDTO, @RequestHeader("Authorization") String bearerToken){
         User user = userService.getUser(bearerToken);
-        UserTransaction newTransaction = transactionService.createTransaction(requestDTO);
-        return new ResponseEntity<UserTransaction>(newTransaction, HttpStatus.CREATED);
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Transaction> getTransactionById(@PathVariable Integer id){
-        Transaction transaction = transactionService.getTransactionById(id);
-        return new ResponseEntity<Transaction>(transaction, HttpStatus.OK);
+        TransactionResponseDTO newTransaction = transactionService.createTransaction(requestDTO);
+        return new ResponseEntity<TransactionResponseDTO>(newTransaction, HttpStatus.CREATED);
     }
 
     @GetMapping

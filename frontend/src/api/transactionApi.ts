@@ -12,6 +12,6 @@ export const getAllTransactions = async (): Promise<TransactionResponse[]> => {
 export const createTransaction = async (
   transaction: TransactionRequest
 ): Promise<TransactionResponse> => {
-  const { data } = await axiosInstance.post("/transactions", transaction);
+  const { data } = await axiosInstance.post("/transaction", transaction);
   return data;
 };
