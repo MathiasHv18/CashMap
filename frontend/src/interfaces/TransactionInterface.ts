@@ -1,7 +1,7 @@
 export interface TransactionRequest {
   amount: number;
   concept: string;
-  date: string;
+  date: Date;
   userId: number;
   idCategoryTransaction: number;
   idTypeTran: number;

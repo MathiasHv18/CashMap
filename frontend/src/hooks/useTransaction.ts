@@ -9,6 +9,7 @@ const useTransactions = () => {
   const [transactions, setTransactions] = useState<TransactionResponse[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isAdding, setIsAdding] = useState(false);
 
   useEffect(() => {
     fetchTransactions();
@@ -27,20 +28,28 @@ const useTransactions = () => {
   };
 
   const addTransaction = async (newTransaction: TransactionRequest) => {
+    setIsAdding(true);
     try {
       const addedTransaction = await createTransaction(newTransaction);
       setTransactions((prev) => [...prev, addedTransaction]);
+      return { success: true };
     } catch (err: any) {
       console.error(
         "Error adding transaction:",
         err.response?.data?.message || err
       );
+      return {
+        success: false,
+        message: err.response?.data?.message || "Failed to add transaction",
+      };
+    } finally {
+      setIsAdding(false);
     }
   };
 
   return {
     transactions,
-    state: { loading, error },
+    state: { loading, error, isAdding },
     fetchTransactions,
     addTransaction,
   };
