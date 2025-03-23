@@ -5,16 +5,6 @@ import SummaryChart from "@/components/layouts/Charts/SummaryChart";
 // Interfaces
 
 export default function Summary() {
-  const data = [
-    { name: "January", income: 3000, expenses: 2000 },
-    { name: "February", income: 2000, expenses: 3000 },
-    { name: "March", income: 4000, expenses: 1000 },
-    { name: "April", income: 5000, expenses: 4000 },
-    { name: "May", income: 6000, expenses: 5000 },
-    { name: "June", income: 7000, expenses: 6000 },
-    { name: "July", income: 8000, expenses: 7000 },
-  ];
-
   return (
     <div className="w-full">
       <div className="flex">
