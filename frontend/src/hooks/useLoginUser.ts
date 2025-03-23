@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { loginUserRequest } from "../interfaces/LoginUserInterface";
-import { loginUserResponse } from "../interfaces/LoginUserInterface";
+import {
+  loginUserRequest,
+  loginUserResponse,
+} from "../interfaces/LoginUserInterface";
 import { loginUser } from "../api/userAuthApi";
 
 const useLoginUser = () => {
@@ -26,7 +28,7 @@ const useLoginUser = () => {
     }
   };
 
-  return { loginUserCall, loading, error, success, response };
+  return { loginUserCall, state: { loading, error, success, response } };
 };
 
 export default useLoginUser;

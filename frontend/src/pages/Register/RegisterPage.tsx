@@ -5,17 +5,10 @@ import styles from "./RegisterPage.module.css";
 import useSentences from "../../hooks/useSentences";
 import useRegisterUser from "../../hooks/useRegisterUser";
 import { registerUserRequest } from "../../interfaces/RegisterUserInterface";
-import { registerUserResponse } from "../../interfaces/RegisterUserInterface";
 
 function RegisterPage() {
-  const { sentences, loading, error: fetchError } = useSentences();
-  const {
-    registerUserCall,
-    loading: loadingRegister,
-    error: registerError,
-    success,
-    response: registerUserResponse,
-  } = useRegisterUser();
+  const { sentences } = useSentences();
+  const { registerUserCall, state: registerState } = useRegisterUser();
   const [name, setname] = useState("");
   const [mail, setmail] = useState("");
   const [password, setPassword] = useState("");
@@ -78,11 +71,11 @@ function RegisterPage() {
   };
 
   useEffect(() => {
-    console.log(registerUserResponse);
-    if (success) {
+    console.log(registerState.response);
+    if (registerState.success) {
       navigate("/");
     }
-  }, [success, navigate]);
+  }, [registerState.success, navigate]);
 
   return (
     <div className={styles.outerBox}>

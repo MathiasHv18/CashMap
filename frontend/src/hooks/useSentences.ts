@@ -10,7 +10,7 @@ const useSentences = () => {
   useEffect(() => {
     const fetchSentences = async () => {
       try {
-        const data: Sentence[]  = await getAllSentences();
+        const data: Sentence[] = await getAllSentences();
         setSentences(data);
       } catch (err) {
         setError("Failed to fetch sentences");
@@ -22,7 +22,7 @@ const useSentences = () => {
     fetchSentences();
   }, []);
 
-  return { sentences, loading, error };
+  return { sentences, state: { loading, error } };
 };
 
 export default useSentences;

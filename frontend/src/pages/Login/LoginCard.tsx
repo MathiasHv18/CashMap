@@ -7,15 +7,9 @@ import useLoginUser from "../../hooks/useLoginUser";
 import { loginUserRequest } from "../../interfaces/LoginUserInterface";
 
 const LoginCard = () => {
-  const { sentences, loading, error: fetchError } = useSentences();
+  const { sentences } = useSentences();
   const [mail, setmail] = useState("");
-  const {
-    loginUserCall,
-    loading: loadingLogin,
-    error: loginError,
-    success,
-    response: loginUserResponse,
-  } = useLoginUser();
+  const { loginUserCall, state: loginState } = useLoginUser();
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const randomSentence = useMemo(() => {
@@ -67,11 +61,11 @@ const LoginCard = () => {
   };
 
   useEffect(() => {
-    if (success && loginUserResponse) {
-      console.log(loginUserResponse);
+    if (loginState.success && loginState.response) {
+      console.log(loginState.response);
       navigate("/mainPage");
     }
-  }, [success, navigate]);
+  }, [loginState.success, navigate]);
 
   return (
     <div className={styles.outerBox}>

@@ -7,14 +7,14 @@ const useRegisterUser = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
-  const [response, setResponse] = useState<registerUserResponse | null>(null); // Nuevo estado para almacenar la respuesta
+  const [response, setResponse] = useState<registerUserResponse | null>(null); 
 
   const registerUserCall = async (user: registerUserRequest) => {
     setLoading(true);
     setError(null);
     setSuccess(false);
     try {
-      const res = await registerUser(user); // Guardar la respuesta de la API
+      const res = await registerUser(user); 
       setResponse(res);
       setSuccess(true);
     } catch (err: any) {
@@ -24,7 +24,7 @@ const useRegisterUser = () => {
     }
   };
 
-  return { registerUserCall, loading, error, success, response }; // Retorna la respuesta
+  return { registerUserCall, state : {loading, error, success, response}}; 
 };
 
 export default useRegisterUser;
