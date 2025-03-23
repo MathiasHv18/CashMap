@@ -67,7 +67,8 @@ public class TransactionServiceImpl implements TransactionService {
         userTransaction.setUser(user);
         userTransaction.setTransaction(savedTransaction);
 
-        // Guardar la relación UserTransaction
+        userTransactionRepository.save(userTransaction);
+
         // Crear y poblar el TransactionResponseDTO
         TransactionResponseDTO responseDTO = new TransactionResponseDTO();
         responseDTO.setIdTransaction(savedTransaction.getIdTransaction());
